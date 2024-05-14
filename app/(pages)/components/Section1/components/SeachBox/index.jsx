@@ -22,7 +22,7 @@ export default function Index() {
   //
   return <>
   <section className="text-center flex w-[529px] h-[56px]  relative mb-6">
-    <input type="text" className="bg-white w-full h-full placeholder-[#2C8EE8] rounded-[15px]  px-5 " placeholder="جستجوی پزشکان، بیماری‌ها و تخصص‌ها ..." />
+    <input type="text" className="bg-white w-full h-full placeholder-[#2C8EE8] text-[#2C8EE8] rounded-[15px] px-5 enabled:border-none" placeholder="جستجوی پزشکان، بیماری‌ها و تخصص‌ها ..." />
     <Image src='/images/icons/Group.svg' width={24} height={24} alt="" className="absolute left-[20px] top-[18px]"/>
   </section>
   </>;
