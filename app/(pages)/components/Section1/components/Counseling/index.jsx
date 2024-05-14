@@ -30,7 +30,7 @@ export default function Index() {
     </section>
     </section>
     <button className="bg-[#2C8EE8] w-[152px] h-[48px] rounded-[10px] hover:bg-[#1F7FD7] flex items-center justify-around">
-        <span className="text-[14px] font-medium">ویزیت فوری</span>
+        <span className="text-[14px] font-medium text-white">ویزیت فوری</span>
         <Image src='/images/icons/arrow.svg' width={38} height={24} alt="" />
     </button>
   </section>
