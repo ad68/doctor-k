@@ -1,5 +1,6 @@
 "use client";
-import Sectin2 from './components/Section2'
+import Section1 from "./components/Section1";
+import Section2 from "./components/Section2";
 //
 // ────────────────────────────────────────────────────────── I ──────────
 //   :::::: C O M P O N E N T : :  :   :    :     :        :          :
@@ -20,9 +21,10 @@ export default function page() {
   //   :::::: R E N D E R : :  :   :    :     :        :          :
   // ──────────────────────────────────────────────────────────────
   //
-  return <>
-  <section>
-  <Sectin2  />
-  </section>
-  </>;
+  return (
+    <>
+      <Section1 />
+      <Section2 />
+    </>
+  );
 }

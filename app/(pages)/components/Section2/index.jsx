@@ -24,17 +24,46 @@ export default function Index() {
   //
   return (
     <>
-      <section className="bg-[#F8FCFF] xl:h-[589px] xl:w-full flex justify-center items-center relative">
-     
-      <Image src="/images/support sticky.png" width={64} height={64} alt="" className="absolute left-[13px]"/>
-        <section className="h-[326px] w-[1127px] flex justify-between items-center relative">
+      <section className="relative flex items-center justify-center bg-[#F8FCFF] xl:h-[589px] xl:w-full">
+        <Image
+          src="/images/support sticky.png"
+          width={64}
+          height={64}
+          alt=""
+          className="absolute left-[13px]"
+        />
+        <section className="relative flex h-[326px] w-[1127px] items-center justify-between">
           <RightSection />
-          <section className="flex flex-col gap-4 w-[543px]">
-          <Image src="/images/Line 1018.png" width={26.6} height={105.5} alt="" className="absolute bottom-[22.5px] left-[-41.87px]"/>
-          <Image src="/images/Line 1017.png" width={26.2} height={105.91} alt="" className="absolute top-[78px] right-[546.96px]"/>
-          <LeftSection icons='/images/icons/search doctor icon.png' title='1.جستجوی پزشک' text='جستجو پزشک بر اساس اطلاعات بیماری یا مشخصات فردی پزشک'/>
-          <LeftSection icons='/images/icons/Counseling icon.png' title='2.درخواست مشاوره' text='جستجو پزشک بر اساس اطلاعات بیماری یا مشخصات فردی پزشک'/>
-          <LeftSection icons='/images/icons/feedback icon.png' title='3.ثبت بازخورد' text='در انتهای مشاوره برای بهبود خدمت رسانی دکتر کا بازخورد شماثبت خواهد شد.'/>
+          <section className="flex w-[543px] flex-col gap-4">
+            <Image
+              src="/images/Line 1018.png"
+              width={26.6}
+              height={105.5}
+              alt=""
+              className="absolute bottom-[22.5px] left-[-41.87px]"
+            />
+            <Image
+              src="/images/Line 1017.png"
+              width={26.2}
+              height={105.91}
+              alt=""
+              className="absolute right-[546.96px] top-[78px]"
+            />
+            <LeftSection
+              icons="/images/icons/search doctor icon.png"
+              title="1.جستجوی پزشک"
+              text="جستجو پزشک بر اساس اطلاعات بیماری یا مشخصات فردی پزشک"
+            />
+            <LeftSection
+              icons="/images/icons/Counseling icon.png"
+              title="2.درخواست مشاوره"
+              text="جستجو پزشک بر اساس اطلاعات بیماری یا مشخصات فردی پزشک"
+            />
+            <LeftSection
+              icons="/images/icons/feedback icon.png"
+              title="3.ثبت بازخورد"
+              text="در انتهای مشاوره برای بهبود خدمت رسانی دکتر کا بازخورد شماثبت خواهد شد."
+            />
           </section>
         </section>
       </section>
