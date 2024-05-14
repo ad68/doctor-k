@@ -1,5 +1,6 @@
 "use client";
-
+import Section1 from "./components/Section1";
+import Image from "next/image";
 //
 // ────────────────────────────────────────────────────────── I ──────────
 //   :::::: C O M P O N E N T : :  :   :    :     :        :          :
@@ -20,5 +21,7 @@ export default function page() {
   //   :::::: R E N D E R : :  :   :    :     :        :          :
   // ──────────────────────────────────────────────────────────────
   //
-  return <></>;
+  return <>
+    <Section1 />
+  </>
 }
