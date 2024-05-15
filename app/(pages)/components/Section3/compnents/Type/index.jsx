@@ -1,14 +1,12 @@
 "use client";
-import Section1 from "./components/Section1";
-import Section2 from "./components/Section2";
-import Section3 from "./components/Section3";
-//
+import React from "react";
+import Item from "./Item";
 // ────────────────────────────────────────────────────────── I ──────────
 //   :::::: C O M P O N E N T : :  :   :    :     :        :          :
 // ────────────────────────────────────────────────────────────────────
 //
 
-export default function page() {
+export default function Index() {
   // ─── Global Variable ────────────────────────────────────────────────────────────
 
   // ─── States ─────────────────────────────────────────────────────────────────────
@@ -16,17 +14,29 @@ export default function page() {
   // ─── Life Cycle ─────────────────────────────────────────────────────────────────
 
   // ─── Functions ──────────────────────────────────────────────────────────────────
-  //
 
+  //
   // ──────────────────────────────────────────────────── I ──────────
   //   :::::: R E N D E R : :  :   :    :     :        :          :
   // ──────────────────────────────────────────────────────────────
   //
   return (
     <>
-      <Section1 />
-      <Section2 />
-      <Section3 />
+      <section className="h-9 w-full flex gap-4 mb-8">
+        <Item title="پوست و مو" />
+        <Item title="قلب و عروق" />
+        <Item title="گوارش" />
+        <Item title="گوش و حلق و بینی" />
+        <Item title="عفونی" />
+        <Item title="داخلی" />
+        <Item title="کودکان" />
+        <Item title="پاتولوژی(آسیب شناسی)" />
+        <Item title="کودکان" />
+        <Item title="مغز و اعصاب" />
+        {/* <Item title="" />
+        <Item title="" />
+        <Item title="" /> */}
+      </section>
     </>
   );
 }
