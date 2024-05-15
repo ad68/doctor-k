@@ -28,7 +28,7 @@ export default function Index() {
     <header className="flex justify-between">
         <section className="flex gap-[10px]">
         <Image src='/images/icons/capsule_32.svg' width={32} height={32} alt="" />
-        <h1 className="text-[24px] font-bold">پربازدیدترین تخصص‌ها</h1>
+        <h1 className="text-[24px] font-bold text-[#505050]">پربازدیدترین تخصص‌ها</h1>
         </section>
         <button className="flex gap-[8px] items-center	">
             <span className="text-[14px] font-medium text-[#2C8EE8]">مشاهده همه‌ی تخصص‌ها</span>
