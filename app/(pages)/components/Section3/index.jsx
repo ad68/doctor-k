@@ -24,7 +24,7 @@ export default function Index() {
   //
   return (
     <>
-      <section className="mx-auto h-[450px] w-[1170px] py-4 ">
+      <section className="mx-auto h-[450px] w-[1170px] pt-4 ">
         <Header />
         <Type />
         <ListItems />

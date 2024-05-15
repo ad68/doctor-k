@@ -1,15 +1,14 @@
 "use client";
-import Section1 from "./components/Section1";
-import Section2 from "./components/Section2";
-import Section3 from "./components/Section3";
-import Section6 from "./components/Section6";
-//
+import React from "react";
+// import Header from "./compnents/Header";
+// import Type from "./compnents/Type";
+// import ListItems from "./compnents/ListItems";
 // ────────────────────────────────────────────────────────── I ──────────
 //   :::::: C O M P O N E N T : :  :   :    :     :        :          :
 // ────────────────────────────────────────────────────────────────────
 //
 
-export default function page() {
+export default function Index() {
   // ─── Global Variable ────────────────────────────────────────────────────────────
 
   // ─── States ─────────────────────────────────────────────────────────────────────
@@ -17,18 +16,17 @@ export default function page() {
   // ─── Life Cycle ─────────────────────────────────────────────────────────────────
 
   // ─── Functions ──────────────────────────────────────────────────────────────────
-  //
 
+  //
   // ──────────────────────────────────────────────────── I ──────────
   //   :::::: R E N D E R : :  :   :    :     :        :          :
   // ──────────────────────────────────────────────────────────────
   //
   return (
     <>
-      <Section1 />
-      <Section2 />
-      <Section3 />
-      <Section6 />
+      <section className="mx-auto bg-[#F8FCFF] h-[450px] w-[1170px] py-4 ">
+       
+      </section>
     </>
   );
 }
