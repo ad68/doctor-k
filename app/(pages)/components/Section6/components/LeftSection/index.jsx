@@ -1,8 +1,8 @@
 "use client";
 import React from "react";
-import Image from "next/image";
-import Icon from "@ant-design/icons/lib/components/Icon";
-import { IconArrowLeft } from "@/common/icons";
+// import Header from "./compnents/Header";
+// import Type from "./compnents/Type";
+// import ListItems from "./compnents/ListItems";
 // ────────────────────────────────────────────────────────── I ──────────
 //   :::::: C O M P O N E N T : :  :   :    :     :        :          :
 // ────────────────────────────────────────────────────────────────────
@@ -24,21 +24,14 @@ export default function Index() {
   //
   return (
     <>
-      <header className="mb-8 flex h-[41px] w-full items-center justify-between px-[5px]">
-        <span className="flex  items-center gap-[14.58px] text-[24px] font-bold text-[#505050]">
-          <Image
-            src="/images/icons/VectorDrug.png"
-            width={22.84}
-            height={22.84}
-            alt=""
-          />
-          پربازدیدترین تخصص‌ها
-        </span>
-        <span className="flex  items-center gap-[13.5px] text-sm font-medium text-[#2C8EE8]">
-          مشاهده همه‌ی تخصص‌ها
-          <IconArrowLeft fill='#2C8EE8' color='#2C8EE8' width={11}  height={18} viewBox='0 -2 15 15' />
-        </span>
-      </header>
+          <section className=" h-[212px] w-[551px]  text-white text-justify ">
+       <h2 className="text-[28px] font-bold flex flex-col justify-between h-[124px] mb-8 w-full">
+       <span> <span className="text-[40px] font-black">رسالت دکترکا</span> دسترسی هر ایرانی از هر</span><psan> مکان و در هر زمانی به پزشکان متخصص است.</psan>
+       </h2>
+       <span className="font-bold leading-[27.64px] w-full ">
+       بعد مسافت و زمان دیگر نباید باعث شود حتی یک ایرانی از دسترسی داشتن به خدمات پزشکی مطلوب، محروم بماند.
+       </span>
+      </section>
     </>
   );
 }

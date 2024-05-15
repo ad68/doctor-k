@@ -1,8 +1,7 @@
 "use client";
 import React from "react";
-// import Header from "./compnents/Header";
-// import Type from "./compnents/Type";
-// import ListItems from "./compnents/ListItems";
+import LeftSection from "./components/LeftSection";
+import RightSection from "./components/RightSection";
 // ────────────────────────────────────────────────────────── I ──────────
 //   :::::: C O M P O N E N T : :  :   :    :     :        :          :
 // ────────────────────────────────────────────────────────────────────
@@ -24,8 +23,11 @@ export default function Index() {
   //
   return (
     <>
-      <section className="mx-auto bg-[#F8FCFF] h-[450px] w-[1170px] py-4 ">
-       
+      <section className=" h-[426.29px] w-full gap-[48px] bg-[#2C8EE8] py-[64px] ">
+        <section className="mx-auto flex h-full w-[1170px] items-center justify-between">
+          <RightSection />
+          <LeftSection />
+        </section>
       </section>
     </>
   );

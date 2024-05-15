@@ -28,7 +28,7 @@ export default function page() {
       <Section1 />
       <Section2 />
       <Section3 />
-      <Section6 />
+      <Section6  />
     </>
   );
 }
