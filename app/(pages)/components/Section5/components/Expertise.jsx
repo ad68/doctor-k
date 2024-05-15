@@ -1,15 +1,12 @@
 "use client";
-import Section1 from "./components/Section1";
-import Section2 from "./components/Section2";
-import Section4 from './components/Section4';
-import Section5 from './components/Section5';
-//
+import React from "react";
+import Image from "next/image";
 // ────────────────────────────────────────────────────────── I ──────────
 //   :::::: C O M P O N E N T : :  :   :    :     :        :          :
 // ────────────────────────────────────────────────────────────────────
 //
 
-export default function page() {
+export default function Index({img , title}) {
   // ─── Global Variable ────────────────────────────────────────────────────────────
 
   // ─── States ─────────────────────────────────────────────────────────────────────
@@ -17,18 +14,16 @@ export default function page() {
   // ─── Life Cycle ─────────────────────────────────────────────────────────────────
 
   // ─── Functions ──────────────────────────────────────────────────────────────────
-  //
 
+  //
   // ──────────────────────────────────────────────────── I ──────────
   //   :::::: R E N D E R : :  :   :    :     :        :          :
   // ──────────────────────────────────────────────────────────────
   //
-  return (
-    <>
-      <Section1 />
-      <Section2 />
-      <Section4 />
-      <Section5 />
-    </>
-  );
+  return <>
+  <section className="bg-white w-[175px] h-[160px] rounded-2xl grid justify-items-center content-center	gap-[10px] ">
+    <Image src={img} width={79} height={79} alt=""/>
+    <h1 className="text-[14px] font-bold">{title}</h1>
+  </section>
+  </>;
 }
