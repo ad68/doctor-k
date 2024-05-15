@@ -33,7 +33,7 @@ export default function Index() {
         <button className="flex self-end w-[221px] text-white h-[48px] bg-[#2C8EE8] justify-center items-center gap-2 rounded-[10px] text-sm font-medium">
           <span>درخواست مشاوره آنلاین</span>
           <span className="bg-white rounded-[50px] w-[38px] h-[24px] flex justify-center items-center ">
-            <Image src="/images/icons/Vector.svg" width={16} height={16} alt="" className=""/>
+            <Image src="/images/icons/arrowLeft.svg" width={16} height={16} alt="" className=""/>
           </span>
         </button>
       </section>
