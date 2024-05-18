@@ -1,14 +1,12 @@
 "use client";
 import React from "react";
-import Header from "./components/Header";
-import Type from "./components/Type";
-import ListItems from "./components/ListItems";
+import Image from "next/image";
 // ────────────────────────────────────────────────────────── I ──────────
 //   :::::: C O M P O N E N T : :  :   :    :     :        :          :
 // ────────────────────────────────────────────────────────────────────
 //
 
-export default function Index() {
+export default function Index({img , title}) {
   // ─── Global Variable ────────────────────────────────────────────────────────────
 
   // ─── States ─────────────────────────────────────────────────────────────────────
@@ -22,13 +20,10 @@ export default function Index() {
   //   :::::: R E N D E R : :  :   :    :     :        :          :
   // ──────────────────────────────────────────────────────────────
   //
-  return (
-    <>
-      <section className="mx-auto h-[450px] w-[1170px] pt-4 ">
-        <Header />
-        <Type />
-        <ListItems />
-      </section>
-    </>
-  );
+  return <>
+  <section className="bg-white w-[175px] h-[160px] rounded-2xl grid justify-items-center content-center	gap-[10px] ">
+    <Image src={img} width={79} height={79} alt=""/>
+    <h1 className="text-[14px] font-bold">{title}</h1>
+  </section>
+  </>;
 }
