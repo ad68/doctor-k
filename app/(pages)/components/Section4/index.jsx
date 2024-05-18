@@ -44,7 +44,7 @@ export default function Index() {
               />
             </button>
           </section>
-          <section className="my-4 flex h-[5px]  w-full justify-center gap-[2px] ">
+          <section className="my-4 flex h-[5px] w-full justify-center gap-[2px] ">
             <span className="h-full w-[18px] rounded-[15px] bg-[#C0E8FF] transition-all hover:w-[30px] hover:bg-[#2C8EE8]"></span>
             <span className="h-full w-[18px] rounded-[15px] bg-[#C0E8FF] transition-all hover:w-[30px] hover:bg-[#2C8EE8]"></span>
             <span className="h-full w-[18px] rounded-[15px] bg-[#C0E8FF] transition-all hover:w-[30px] hover:bg-[#2C8EE8]"></span>
