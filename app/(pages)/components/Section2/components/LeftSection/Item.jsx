@@ -21,7 +21,7 @@ export default function Index({ icons, title, text }) {
   // ──────────────────────────────────────────────────────────────
   //
   return <>
-    <section className="flex h-auto w-full items-center gap-[10px] rounded-[15px] border border-solid border-[#EFEFEF] bg-white p-4">
+    <section className="flex h-auto w-full items-center gap-[10px] rounded-[15px] border border-solid border-[#EFEFEF]  bg-white p-4">
         <Image src={icons} width={48} height={48} alt="" />
         <section className="flex flex-col">
           <span className="text-[20px] font-bold leading-[34.55px] text-[#2C8EE8]">

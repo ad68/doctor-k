@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import Image from "next/image";
 import Icon from "@ant-design/icons/lib/components/Icon";
 import { IconArrowLeft } from "@/common/icons";
 // ────────────────────────────────────────────────────────── I ──────────
@@ -23,21 +24,21 @@ export default function Index() {
   //
   return (
     <>
-      <section className="flex h-[264px] w-[489px] flex-col ">
-        <h2 className="mb-6 text-[28px] font-bold leading-[48.36px] text-[#505050]">
-          مشاوره آنلاین با بیش از 1000 پزشک متخصص در تمامی تخصص‌ها
-        </h2>
-        <span className="text-sm leading-[24.18px] text-[#707070] text-justify mb-12">
-          شما می‌توانید در سریع‌ترین زمان از سراسر ایران از پزشکان در تخصص‌های
-          مختلف وقت مشاوره رزرو کرده و قبل از مراجعه حضوری مشاوره بگیرید.
+      <header className="mb-8 flex h-[41px] w-full items-center justify-between px-[5px]">
+        <span className="flex  items-center gap-[14.58px] text-[24px] font-bold text-[#505050]">
+          <Image
+            src="/images/icons/VectorDrug.png"
+            width={22.84}
+            height={22.84}
+            alt=""
+          />
+          پربازدیدترین تخصص‌ها
         </span>
-        <button className="flex self-end w-[221px] text-white h-[48px] bg-[#2C8EE8] hover:bg-[#2581D6] justify-center items-center gap-2 rounded-[10px] text-sm font-medium">
-          <span>درخواست مشاوره آنلاین</span>
-          <span className="bg-white rounded-[50px] w-[38px] h-[24px] flex justify-center items-center ">
-          <IconArrowLeft fill='#2C8EE8' color='#2C8EE8' width={13.5}  height={20} viewBox='0 -3 15 15' />
-          </span>
-        </button>
-      </section>
+        <span className="flex  items-center gap-[13.5px] text-sm font-medium text-[#2C8EE8]">
+          مشاهده همه‌ی تخصص‌ها
+          <IconArrowLeft fill='#2C8EE8' color='#2C8EE8' width={11}  height={18} viewBox='0 -2 15 15' />
+        </span>
+      </header>
     </>
   );
 }

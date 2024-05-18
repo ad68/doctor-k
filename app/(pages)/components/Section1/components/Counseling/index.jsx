@@ -1,6 +1,8 @@
 "use client";
 import React from "react";
 import Image from "next/image";
+import Icon from "@ant-design/icons/lib/components/Icon";
+import { IconArrowLeft } from "@/common/icons";
 // ────────────────────────────────────────────────────────── I ──────────
 //   :::::: C O M P O N E N T : :  :   :    :     :        :          :
 // ────────────────────────────────────────────────────────────────────
@@ -31,7 +33,7 @@ export default function Index() {
     </section>
     <button className="bg-[#2C8EE8] w-[152px] h-[48px] rounded-[10px] hover:bg-[#1F7FD7] flex items-center justify-around">
         <span className="text-[14px] font-medium text-white">ویزیت فوری</span>
-        <Image src='/images/icons/arrow.svg' width={38} height={24} alt="" />
+        <IconArrowLeft fill='white' color='white' width={13.5}  height={20} viewBox='0 -3 15 15' />
     </button>
   </section>
   </>;

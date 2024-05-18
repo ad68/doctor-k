@@ -3,7 +3,7 @@ import Image from "next/image";
 export const Header = () => {
   return (
     <>
-      <header className="fixed top-0 flex h-[72px] w-full items-center bg-[#2C8EE8]  px-[98px] text-white z-[1000]">
+      <header className="fixed top-0 flex h-[72px] w-full items-center bg-[#366FA7]  px-[98px] text-white z-[1000]">
         <nav className="w-full">
           <header className="flex w-full items-center justify-between">
             <section className="flex items-center gap-8">
