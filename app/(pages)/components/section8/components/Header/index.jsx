@@ -1,20 +1,14 @@
 "use client";
-import Section1 from "./components/Section1";
-import Section2 from "./components/Section2";
-import Section3 from "./components/Section3";
-import Section6 from "./components/Section6";
-import Section4 from "./components/Section4";
-import Section5 from "./components/Section5";
-import Section7 from "./components/Section7";
-import Section9 from "./components/Section9";
-import Section8 from "./components/Section8";
-//
+import React from "react";
+import Image from "next/image";
+import Icon from "@ant-design/icons/lib/components/Icon";
+import { IconArrowLeft } from "@/common/icons";
 // ────────────────────────────────────────────────────────── I ──────────
 //   :::::: C O M P O N E N T : :  :   :    :     :        :          :
 // ────────────────────────────────────────────────────────────────────
 //
 
-export default function page() {
+export default function Index() {
   // ─── Global Variable ────────────────────────────────────────────────────────────
 
   // ─── States ─────────────────────────────────────────────────────────────────────
@@ -22,23 +16,35 @@ export default function page() {
   // ─── Life Cycle ─────────────────────────────────────────────────────────────────
 
   // ─── Functions ──────────────────────────────────────────────────────────────────
-  //
 
+  //
   // ──────────────────────────────────────────────────── I ──────────
   //   :::::: R E N D E R : :  :   :    :     :        :          :
   // ──────────────────────────────────────────────────────────────
   //
   return (
     <>
-      <Section1 />
-      <Section2 />
-      <Section3 />
-      <Section4 />
-      <Section5 />
-      <Section6 />
-      <Section7 />
-      <Section8 />
-      <Section9 />
+      <header className="mb-8 flex h-[41px] w-full items-center justify-between px-[5px]">
+        <span className="flex  items-center gap-[14.58px] text-[24px] font-bold text-[#505050]">
+          <Image
+            src="/images/icons/VectorDrug.png"
+            width={22.84}
+            height={22.84}
+            alt=""
+          />
+          مقالات دکتر کا
+        </span>
+        <span className="flex  items-center gap-[13.5px] text-sm font-medium text-[#2C8EE8]">
+          مشاهده همه‌ی مقالات{" "}
+          <IconArrowLeft
+            fill="#2C8EE8"
+            color="#2C8EE8"
+            width={11}
+            height={18}
+            viewBox="0 -2 15 15"
+          />
+        </span>
+      </header>
     </>
   );
 }

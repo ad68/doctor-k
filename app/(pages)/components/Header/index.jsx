@@ -7,7 +7,7 @@ export const Header = () => {
         <nav className="w-full">
           <header className="flex w-full items-center justify-between">
             <section className="flex items-center gap-8">
-              <h1 className="text-[24px] cursor-pointer">دکتر کا</h1>
+              <h1 className="text-[24px] font-bold cursor-pointer">دکتر کا</h1>
               <span className="flex items-center gap-2 text-sm">
                 <Image
                   src="/images/icons/fluent_call-32-filled.svg"

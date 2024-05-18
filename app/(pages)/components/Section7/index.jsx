@@ -23,7 +23,7 @@ export default function Index() {
   //
   return <>
   <section className="grid justify-items-center gap-[34px] bg-[#F8FCFF] xl:w-full pb-[104px] "> 
-    <header className="grid justify-items-center gap-2">
+    <header className="grid justify-items-center gap-2 mt-[104.71px]">
         <section className="flex gap-[10px]">
             <Image src='/images/icons/capsule_32.svg' width={32} height={32} alt="" />
             <h1 className="text-[24px] font-bold text-[#505050]">برترین پزشکان دکترکا</h1>
