@@ -1,21 +1,12 @@
 "use client";
-import Section1 from "./components/Section1";
-import Section2 from "./components/Section2";
-import Section3 from "./components/Section3";
-import Section6 from "./components/Section6";
-import Section4 from "./components/Section4";
-import Section5 from "./components/Section5";
-import Section7 from "./components/Section7";
-import Section8 from "./components/Section8";
-import Section9 from "./components/Section9";
-import Section10 from "./components/Section10";
-//
+import React from "react";
+
 // ────────────────────────────────────────────────────────── I ──────────
 //   :::::: C O M P O N E N T : :  :   :    :     :        :          :
 // ────────────────────────────────────────────────────────────────────
 //
 
-export default function page() {
+export default function Index({des}) {
   // ─── Global Variable ────────────────────────────────────────────────────────────
 
   // ─── States ─────────────────────────────────────────────────────────────────────
@@ -23,24 +14,14 @@ export default function page() {
   // ─── Life Cycle ─────────────────────────────────────────────────────────────────
 
   // ─── Functions ──────────────────────────────────────────────────────────────────
-  //
 
+  //
   // ──────────────────────────────────────────────────── I ──────────
   //   :::::: R E N D E R : :  :   :    :     :        :          :
   // ──────────────────────────────────────────────────────────────
   //
-  return (
-    <>
-      <Section1 />
-      <Section2 />
-      <Section3 />
-      <Section4 />
-      <Section5 />
-      <Section6 />
-      <Section7 />
-      <Section8 />
-      <Section9 />
-      <Section10 />
-    </>
-  );
+  return <>
+  <section className="flex gap-2 border-r-[2px] border-[#C0E8FF] mt-6 pr-2">
+    <p className="text-[14px] font-medium text-[#707070] leading-[24.18px]">{des}</p>
+    </section></>;
 }
