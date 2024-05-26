@@ -10,7 +10,6 @@ import Image from "next/image";
 
 export default function Index() {
   // ─── Global Variable ────────────────────────────────────────────────────────────
-
   // ─── States ─────────────────────────────────────────────────────────────────────
   const [scrollYPosition, setScrollYPosition] = useState(0);
   // ─── Life Cycle ─────────────────────────────────────────────────────────────────
@@ -28,7 +27,7 @@ export default function Index() {
     const newScrollYPosition = window.pageYOffset;
     setScrollYPosition(newScrollYPosition);
   };
-  /*  useEffect(() => {
+  /* useEffect(() => {
      consoleLog_BlackRed(scrollYPosition)
    }, [scrollYPosition]) */
   //
