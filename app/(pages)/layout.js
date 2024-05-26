@@ -5,6 +5,7 @@ import { Header } from "./components/Header";
 import Footer from "./components/Footer";
 import TopLoader from "../common/TopLoader";
 import { Toaster } from "react-hot-toast";
+
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 const figtree = Figtree({
@@ -84,7 +85,7 @@ export default function RootLayout({ children }) {
       className={`${yekanbakh.variable} ${figtree.variable}`}
     >
       <body className="dark:bg-black">
-        {/*  <ScrollTop /> */}
+        <ScrollTop />
         <TopLoader />
         <Header />
         <Toaster />

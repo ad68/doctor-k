@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import Item from "./Item";
+import Item from "./components/Item";
 // ────────────────────────────────────────────────────────── I ──────────
 //   :::::: C O M P O N E N T : :  :   :    :     :        :          :
 // ────────────────────────────────────────────────────────────────────

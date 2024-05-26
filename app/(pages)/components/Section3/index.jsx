@@ -1,8 +1,11 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import Header from "./components/Header";
-import Type from "./components/Type";
-import ListItems from "./components/ListItems";
+import Filter from "./components/Filter";
+import Slider from "./components/ListItems";
+import { ComponentLoading } from "@/common";
+import { useAxios } from "@/hooks";
+import { api } from "@/api";
 // ────────────────────────────────────────────────────────── I ──────────
 //   :::::: C O M P O N E N T : :  :   :    :     :        :          :
 // ────────────────────────────────────────────────────────────────────
@@ -12,10 +15,14 @@ export default function Index() {
   // ─── Global Variable ────────────────────────────────────────────────────────────
 
   // ─── States ─────────────────────────────────────────────────────────────────────
-
-  // ─── Life Cycle ─────────────────────────────────────────────────────────────────
-
   // ─── Functions ──────────────────────────────────────────────────────────────────
+  const getList = () => {
+    useAxios.get(api.Expertise.GetTopExpertisesPhysicians).then().catch()
+  }
+  // ─── Life Cycle ─────────────────────────────────────────────────────────────────
+  useEffect(() => {
+    getList()
+  }, [])
 
   //
   // ──────────────────────────────────────────────────── I ──────────
@@ -24,10 +31,11 @@ export default function Index() {
   //
   return (
     <>
-      <section className="mx-auto h-[450px] w-[1170px] pt-4 ">
+      <section className="mx-auto relative h-[450px] w-[1170px] pt-4 ">
+        <ComponentLoading show={true} />
         <Header />
-        <Type />
-        <ListItems />
+        <Filter />
+        <Slider />
       </section>
     </>
   );
