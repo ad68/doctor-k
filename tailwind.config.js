@@ -36,8 +36,12 @@ module.exports = {
       colors: tailwindColors,
       container: {
         center: true,
-        width: {
-          md: "max-w-screen-2xl",
+        screens: {
+          sm: "600px",
+          md: "728px",
+          lg: "984px",
+          xl: "1240px",
+          "2xl": "1170px",
         },
         padding: {
           DEFAULT: "0rem",
