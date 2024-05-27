@@ -83,7 +83,7 @@ export default function RootLayout({ children }) {
       className={`${yekanbakh.variable} ${figtree.variable}`}
     >
       <body className="dark:bg-black">
-        <ScrollTop />
+        {/*  <ScrollTop /> */}
         <TopLoader />
         <Header />
         <Toaster />

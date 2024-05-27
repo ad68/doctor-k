@@ -22,7 +22,7 @@ export default function Index({ title }) {
   //
   return (
     <>
-      <section className="transition-all h-full  text-sm leading-[24.18px] font-medium flex justify-center items-center rounded-[10px] border border-solid border-[#D1D1D1] px-4 text-[#707070] hover:border-[#2C8EE8] hover:bg-[#2C8EE8] hover:text-white">
+      <section className="transition-all cursor-pointer h-full  text-sm leading-[24.18px] font-medium flex justify-center items-center rounded-[10px] border border-solid border-[#D1D1D1] px-4 text-[#707070] hover:border-[#2C8EE8] hover:bg-[#2C8EE8] hover:text-white">
         {title}
       </section>
     </>

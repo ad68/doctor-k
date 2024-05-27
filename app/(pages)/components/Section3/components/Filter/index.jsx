@@ -1,12 +1,13 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import Item from "./components/Item";
+import { consoleLog_BlackYellow } from "@/helper";
 // ────────────────────────────────────────────────────────── I ──────────
 //   :::::: C O M P O N E N T : :  :   :    :     :        :          :
 // ────────────────────────────────────────────────────────────────────
 //
 
-export default function Index() {
+export default function Index({ list }) {
   // ─── Global Variable ────────────────────────────────────────────────────────────
 
   // ─── States ─────────────────────────────────────────────────────────────────────
@@ -23,7 +24,10 @@ export default function Index() {
   return (
     <>
       <section className="h-9 w-full flex gap-4 mb-8">
-        <Item title="پوست و مو" />
+        {list.map((item, index) => (
+          <Item key={index} title={item.name} />
+        ))}
+        {/*   <Item title="پوست و مو" />
         <Item title="قلب و عروق" />
         <Item title="گوارش" />
         <Item title="گوش و حلق و بینی" />
@@ -32,10 +36,8 @@ export default function Index() {
         <Item title="کودکان" />
         <Item title="پاتولوژی(آسیب شناسی)" />
         <Item title="کودکان" />
-        <Item title="مغز و اعصاب" />
-        {/* <Item title="" />
-        <Item title="" />
-        <Item title="" /> */}
+        <Item title="مغز و اعصاب" /> */}
+
       </section>
     </>
   );
