@@ -8,7 +8,7 @@ import { IconArrowLeft } from "@/common/icons";
 // ────────────────────────────────────────────────────────────────────
 //
 
-export default function Index() {
+export default function Index({ }) {
   // ─── Global Variable ────────────────────────────────────────────────────────────
 
   // ─── States ─────────────────────────────────────────────────────────────────────
@@ -36,7 +36,7 @@ export default function Index() {
         </span>
         <span className="flex  items-center gap-[13.5px] text-sm font-medium text-[#2C8EE8]">
           مشاهده همه‌ی تخصص‌ها
-          <IconArrowLeft fill='#2C8EE8' color='#2C8EE8' width={11}  height={18} viewBox='0 -2 15 15' />
+          <IconArrowLeft fill='#2C8EE8' color='#2C8EE8' width={11} height={18} viewBox='0 -2 15 15' />
         </span>
       </header>
     </>

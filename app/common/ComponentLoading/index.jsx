@@ -22,8 +22,7 @@ export default function Index({ show }) {
   //
   return (
     <section className={`flex w-full items-center justify-center absolute left-0 top-0 h-full z-10 transition-all duration-500 bg-white ${show ? 'visible opacity-100' : "invisible opacity-0"}`}>
-      <div class="loader"></div>
-
+      <div className="loader"></div>
     </section>
   );
 }

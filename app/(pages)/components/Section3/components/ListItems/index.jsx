@@ -11,7 +11,7 @@ import Icon from "@ant-design/icons/lib/components/Icon"; */
 // ────────────────────────────────────────────────────────────────────
 //
 
-export default function Index() {
+export default function Index({ list }) {
   // ─── Global Variable ────────────────────────────────────────────────────────────
 
   var settings = {
@@ -62,7 +62,15 @@ export default function Index() {
   return (
     <section className="w-full h-[500px] ltr">
       <Slider {...settings}>
-        <Item
+        {list?.map((item, index) => (<Item
+          key={index}
+          img="/images/Rectangle.png"
+          name={`${item.firstName} ${item.lastName}`}
+          rate="3.9"
+          status="در حال مشاوره"
+          background="bg-[#E5B403]"
+        />))}
+        {/*   <Item
           img="/images/Rectangle.png"
           name="علی امیری"
           rate="3.9"
@@ -110,7 +118,7 @@ export default function Index() {
           rate="3.9"
           status="در حال مشاوره"
           background="bg-[#E5B403]"
-        />
+        /> */}
       </Slider>
       {/*  <section className="w-auto h-[5px] gap-[2px] flex my-4 ">
         <span className="w-[18px] hover:w-[30px] h-full hover:bg-[#2C8EE8] transition-all bg-[#C0E8FF] rounded-[15px]"></span>

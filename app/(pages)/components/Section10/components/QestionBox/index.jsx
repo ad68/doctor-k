@@ -13,9 +13,7 @@ export default function Index({ question, des }) {
   // ─── States ─────────────────────────────────────────────────────────────────────
   const [scroll, setScroll] = useState(false);
   // ─── Life Cycle ─────────────────────────────────────────────────────────────────
-  useEffect(() => {
-    console.log(scroll);
-  }, [scroll]);
+
   // ─── Functions ──────────────────────────────────────────────────────────────────
 
   //
@@ -32,7 +30,7 @@ export default function Index({ question, des }) {
           <button
             onClick={() => {
               setScroll(!scroll);
-            !scroll ? document.getElementById("plus").src = '/images/icons/collapse_24.svg' : document.getElementById("plus").src = "/images/icons/expand_24.svg";
+              !scroll ? document.getElementById("plus").src = '/images/icons/collapse_24.svg' : document.getElementById("plus").src = "/images/icons/expand_24.svg";
 
             }}
           >

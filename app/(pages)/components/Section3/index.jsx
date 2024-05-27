@@ -6,7 +6,7 @@ import Slider from "./components/ListItems";
 import { ComponentLoading } from "@/common";
 import { useAxios } from "@/hooks";
 import { api } from "@/api";
-import { consoleLog_Blue, showNotify } from "@/helper";
+import { consoleLog_BlackGreen, consoleLog_Blue, showNotify } from "@/helper";
 import { NotifyMessage, NotifyType } from "@/enums";
 
 // ────────────────────────────────────────────────────────── I ──────────
@@ -18,22 +18,28 @@ export default function Index() {
   // ─── Global Variable ────────────────────────────────────────────────────────────
 
   // ─── States ─────────────────────────────────────────────────────────────────────
-  const [list, setList] = useState([])
-  const [loading, setLoading] = useState(false)
-  const [filter, setFilter] = useState({})
+  const [list, setList] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [filter, setFilter] = useState([]);
   // ─── Functions ──────────────────────────────────────────────────────────────────
   const getList = () => {
-    setLoading(true)
+    setLoading(true);
     useAxios
       .get(api.Expertise.GetTopExpertisesPhysicians)
-      .then(res => { setList(res.data); setLoading(false) })
-      .catch(err => { setLoading(false), showNotify(NotifyType.ERROR, NotifyMessage.GLOBAL_ERROR) })
-  }
+      .then((res) => {
+        setList(res.data);
+        setFilter(res.data[0])
+        setLoading(false);
+      })
+      .catch((err) => {
+        setLoading(false), showNotify(NotifyType.ERROR, NotifyMessage.GLOBAL_ERROR);
+      });
+  };
   // ─── Life Cycle ─────────────────────────────────────────────────────────────────
   useEffect(() => {
-    getList()
+    getList();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, []);
 
 
   //
@@ -43,11 +49,11 @@ export default function Index() {
   //
   return (
     <>
-      <section className="mx-auto relative h-[450px] w-[1170px] pt-4 ">
+      <section className='mx-auto relative h-[450px] w-[1170px] pt-4 '>
         <ComponentLoading show={loading} />
         <Header />
-        <Filter list={list} />
-        <Slider />
+        <Filter setFilter={setFilter} filter={filter} list={list} />
+        <Slider list={filter.physicians} />
       </section>
     </>
   );
