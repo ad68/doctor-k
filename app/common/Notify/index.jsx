@@ -44,7 +44,6 @@ export default function Index() {
         >
           <IconClose width={28} height={28} color="red" fill="white" />
         </section>
-
         <span
           id="myNotifyText"
           className="mr-3 text-sm font-normal text-black"
