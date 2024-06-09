@@ -41,6 +41,7 @@
     "eslint-config-next": "14.0.4",
     "gulp": "^5.0.0",
     "gulp-rename": "^2.0.0",
+    "gulp-svg-symbols": "^3.2.3",
     "gulp-wrap": "^0.15.0",
     "postcss": "^8",
     "prettier": "^3.2.4",
