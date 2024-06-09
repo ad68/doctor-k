@@ -31,14 +31,12 @@ export default function Index() {
   const [showPicker, setShowPicker] = React.useState(true);
   const [selectedDateValue, setSelectedDateValue] = React.useState();
   const [selectedDateEvents, setSelectedDateEvents] = React.useState([]);
-
   function handleSubmit(selectedDate) {
     const date = format(selectedDate.date, "d MMMM yyyy");
     const events = selectedDate.events;
     setSelectedDateValue(date);
     setSelectedDateEvents(events);
   }
-
   // ─── Functions ──────────────────────────────────────────────────────────────────
 
   // ─── Life Cycle ─────────────────────────────────────────────────────────────────
