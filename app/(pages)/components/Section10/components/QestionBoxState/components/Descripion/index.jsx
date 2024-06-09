@@ -21,7 +21,7 @@ export default function Index({des}) {
   // ──────────────────────────────────────────────────────────────
   //
   return <>
-  <section className="flex gap-2 border-r-[2px] border-[#C0E8FF] mt-6 pr-2">
-    <p className="text-[14px] font-medium text-[#707070] leading-[24.18px]">{des}</p>
+  <section className="flex gap-2 border-r-[2px] border-[#666666]  pr-2 dark:text-white">
+    <p className="text-justify text-[12px] font-normal xl:text-[14px] xl:font-medium dark:text-white text-[#707070] xl:leading-[24.18px] leading-[21.6px]">{des}</p>
     </section></>;
 }

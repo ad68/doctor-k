@@ -4,6 +4,7 @@ import SideBar from "./components/SideBar";
 import SearchBox from "./components/SeachBox";
 import InfoList from "./components/InfoList";
 import Commenst from "./components/Comments";
+import Question from "./components/Question";
 // ────────────────────────────────────────────────────────── I ──────────
 //   :::::: C O M P O N E N T : :  :   :    :     :        :          :
 // ────────────────────────────────────────────────────────────────────
@@ -24,7 +25,7 @@ export default function Index() {
   // ──────────────────────────────────────────────────────────────
   //
   return <>
-  <section className="h-[3000px]">
+  <section className="">
     <header className="w-full bg-[#2C8EE8] h-[72px] mt-[72px]  ">
         <SearchBox />
     </header>
@@ -34,5 +35,6 @@ export default function Index() {
     <InfoList />
     </section>
     <Commenst />
+    <Question />
     </section></>;
 }

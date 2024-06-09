@@ -23,7 +23,7 @@ export default function Index({ image, name, field }) {
   //
   return (
     <>
-      <section className="h-[216px] w-full rounded-[20px] border-[1px] bg-white px-3 py-6 flex gap-[87px]">
+      <section className="h-[216px] w-full rounded-[20px] border-[1px] bg-white px-6 py-3 flex justify-between">
         <section className="grid gap-[26px]">
           <section className="flex items-center gap-[28px]">
             <Image
@@ -69,11 +69,11 @@ export default function Index({ image, name, field }) {
                 <span className="text-[12px] font-normal text-[#505050]">شنبه، دوشنبه، چهاشنبه</span>
             </section>
             <section className="flex gap-3 items-center">
-                <Image src={"/images/icons/clock-16.svg"} width={16} height={16} alt=""/>
+                <Image src={"/images/icons/headphone_16.svg"} width={16} height={16} alt=""/>
                 <span className="text-[12px] font-normal text-[#505050]">  120 مشاوره موفق (در مدت 3 ماه) </span>
             </section>
             <section className="flex gap-3 items-center">
-                <Image src={"/images/icons/clock-16.svg"} width={16} height={16} alt=""/>
+                <Image src={"/images/icons/receipt-minus_16.svg"} width={16} height={16} alt=""/>
                 <span className="text-[12px] font-normal text-[#505050]"> تومان<span className="text-[18px] font-bold text-[#2C8EE8]">100،000</span>
                 شروع از</span>
             </section>

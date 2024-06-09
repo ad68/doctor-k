@@ -1,17 +1,16 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import Image from "next/image";
-import Descripion from "./components/Descripion";
+import React from "react";
+
 // ────────────────────────────────────────────────────────── I ──────────
 //   :::::: C O M P O N E N T : :  :   :    :     :        :          :
 // ────────────────────────────────────────────────────────────────────
 //
 
-export default function Index({ question, des }) {
+export default function Index({des}) {
   // ─── Global Variable ────────────────────────────────────────────────────────────
 
   // ─── States ─────────────────────────────────────────────────────────────────────
-  const [scroll, setScroll] = useState(false);
+
   // ─── Life Cycle ─────────────────────────────────────────────────────────────────
 
   // ─── Functions ──────────────────────────────────────────────────────────────────
@@ -21,31 +20,8 @@ export default function Index({ question, des }) {
   //   :::::: R E N D E R : :  :   :    :     :        :          :
   // ──────────────────────────────────────────────────────────────
   //
-  return (
-    <>
-      <section
-        className={`${scroll}?  "grid" : "" items-center gap-6 rounded-xl border-[1px] border-[#EFEFEF] bg-white px-6 py-4`}
-      >
-        <section className={` flex w-full gap-2 transition-all`}>
-          <button
-            onClick={() => {
-              setScroll(!scroll);
-              !scroll ? document.getElementById("plus").src = '/images/icons/collapse_24.svg' : document.getElementById("plus").src = "/images/icons/expand_24.svg";
-
-            }}
-          >
-            <Image
-              src="/images/icons/expand_24.svg"
-              width={24}
-              height={24}
-              alt=""
-              id="plus"
-            />
-          </button>
-          <h5 className="text-[16px] font-bold text-[#505050]">{question}</h5>
-        </section>
-        <section>{scroll ? <Descripion des={des} /> : ""}</section>
-      </section>
-    </>
-  );
+  return <>
+  <section className="flex gap-2 border-r-[2px] border-[#666666]  pr-2 dark:text-white">
+    <p className="text-justify text-[12px] font-normal xl:text-[14px] xl:font-medium dark:text-white text-[#707070] xl:leading-[24.18px] leading-[21.6px]">{des}</p>
+    </section></>;
 }

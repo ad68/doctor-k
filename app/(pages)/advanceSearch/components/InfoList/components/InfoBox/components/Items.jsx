@@ -21,7 +21,7 @@ export default function Index({name}) {
   // ──────────────────────────────────────────────────────────────
   //
   return <>
-  <section className="bg-[#EFEFEF] text-[#909090] text-[14px] font-normal px-2 py-[2px] rounded-[25px] inline">
-    <span>{name}</span>
+  <section className="bg-[#EFEFEF] text-[#909090] text-[14px] font-normal px-2 pt-[2px] rounded-[25px] text-center flex justify-center items-center">
+    <span >{name}</span>
     </section></>;
 }

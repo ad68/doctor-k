@@ -159,3 +159,7 @@ html {
     border-radius: 50%;
   }
 }
+
+body {
+  background-color: rgba(236, 254, 255, 0.281);
+}
