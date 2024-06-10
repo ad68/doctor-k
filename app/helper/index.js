@@ -51,15 +51,9 @@ export const getPersianMonthText = (month) => {
       return "اسفند";
   }
 };
-export const showNotify = (text, type) => {
-  if (type === "success") {
-    /* JSX Content */
-    /* toast((t) => (
-      <span>
-        Custom and <b>bold</b>
-        <button onClick={() => toast.dismiss(t.id)}>Dismiss</button>
-      </span>
-    )); */
+
+export const notify = {
+  Success: (text) =>
     toast.success(text, {
       style: {
         border: "1px solid #1CAE81",
@@ -71,9 +65,8 @@ export const showNotify = (text, type) => {
         primary: "#1CAE81",
         secondary: "#FFFAEE",
       },
-    });
-  }
-  if (type === "error") {
+    }),
+  Error: (text) =>
     toast.error(text, {
       style: {
         border: "1px solid red",
@@ -85,8 +78,7 @@ export const showNotify = (text, type) => {
         primary: "red",
         secondary: "#ffc7c7",
       },
-    });
-  }
+    }),
 };
 export const scrollToTop = () => {
   window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
@@ -98,10 +90,7 @@ export const consoleLog_Blue = (value, title) => {
   } else {
     logTitle = "Blue Title";
   }
-  console.log(
-    `%c <--//////////// ${logTitle} ///////////////////-->`,
-    "background: #0096FF; color: white",
-  );
+  console.log(`%c <--//////////// ${logTitle} ///////////////////-->`, "background: #0096FF; color: white");
   console.log(value);
 };
 export const consoleLog_Red = (value, title) => {
@@ -111,10 +100,7 @@ export const consoleLog_Red = (value, title) => {
   } else {
     logTitle = "Red Title";
   }
-  console.log(
-    `%c <--//////////// ${logTitle} ///////////////////-->`,
-    "background: #EB4747; color: white",
-  );
+  console.log(`%c <--//////////// ${logTitle} ///////////////////-->`, "background: #EB4747; color: white");
   console.log(value);
 };
 export const consoleLog_yellow = (value, title) => {
@@ -124,10 +110,7 @@ export const consoleLog_yellow = (value, title) => {
   } else {
     logTitle = "yellow Title";
   }
-  console.log(
-    `%c <--//////////// ${logTitle} ///////////////////-->`,
-    "background: yellow; color: black",
-  );
+  console.log(`%c <--//////////// ${logTitle} ///////////////////-->`, "background: yellow; color: black");
   console.log(value);
 };
 export const consoleLog_green = (value, title) => {
@@ -137,10 +120,7 @@ export const consoleLog_green = (value, title) => {
   } else {
     logTitle = "Green Title";
   }
-  console.log(
-    `%c <--//////////// ${logTitle} ///////////////////-->`,
-    "background: #34BE82; color: white",
-  );
+  console.log(`%c <--//////////// ${logTitle} ///////////////////-->`, "background: #34BE82; color: white");
   console.log(value);
 };
 export const consoleLog_BlackGreen = (value, title) => {
@@ -150,10 +130,7 @@ export const consoleLog_BlackGreen = (value, title) => {
   } else {
     logTitle = "Black Green Title";
   }
-  console.log(
-    `%c <--//////////// ${logTitle} ///////////////////-->`,
-    "background: black; color: #80ff00",
-  );
+  console.log(`%c <--//////////// ${logTitle} ///////////////////-->`, "background: black; color: #80ff00");
   console.log(value);
 };
 export const consoleLog_BlackOrange = (value, title) => {
@@ -163,10 +140,7 @@ export const consoleLog_BlackOrange = (value, title) => {
   } else {
     logTitle = "Black Orange Title";
   }
-  console.log(
-    `%c <--//////////// ${logTitle} ///////////////////-->`,
-    "background: black; color: #ff8000",
-  );
+  console.log(`%c <--//////////// ${logTitle} ///////////////////-->`, "background: black; color: #ff8000");
   console.log(value);
 };
 export const consoleLog_BlackYellow = (value, title) => {
@@ -176,10 +150,7 @@ export const consoleLog_BlackYellow = (value, title) => {
   } else {
     logTitle = "Black yellow Title";
   }
-  console.log(
-    `%c <--//////////// ${logTitle} ///////////////////-->`,
-    "background: black; color: yellow",
-  );
+  console.log(`%c <--//////////// ${logTitle} ///////////////////-->`, "background: black; color: yellow");
   console.log(value);
 };
 export const consoleLog_BlackRed = (value, title) => {
@@ -189,10 +160,7 @@ export const consoleLog_BlackRed = (value, title) => {
   } else {
     logTitle = "Black Red Title";
   }
-  console.log(
-    `%c <--//////////// ${logTitle} ///////////////////-->`,
-    "background: black; color: red",
-  );
+  console.log(`%c <--//////////// ${logTitle} ///////////////////-->`, "background: black; color: red");
   console.log(value);
 };
 export const consoleLog_Pink = (value, title) => {
@@ -202,10 +170,7 @@ export const consoleLog_Pink = (value, title) => {
   } else {
     logTitle = "Pink Title";
   }
-  console.log(
-    `%c <--//////////// ${logTitle} ///////////////////-->`,
-    "background: pink; color: black",
-  );
+  console.log(`%c <--//////////// ${logTitle} ///////////////////-->`, "background: pink; color: black");
   console.log(value);
 };
 export const consoleLog_Purple = (value, title) => {
@@ -215,43 +180,6 @@ export const consoleLog_Purple = (value, title) => {
   } else {
     logTitle = "Purple Title";
   }
-  console.log(
-    `%c <--//////////// ${logTitle} ///////////////////-->`,
-    "background: Purple; color: white",
-  );
+  console.log(`%c <--//////////// ${logTitle} ///////////////////-->`, "background: Purple; color: white");
   console.log(value);
-};
-const oldShowNotify = () => {
-  /*  var notify = document.getElementById("myNotifyWrapper");
-  var notifyBox = document.getElementById("myNotifyBox");
-  var notifyText = document.getElementById("myNotifyText");
-  var notifyCheck = document.getElementById("myNotifyCheckIcon");
-  var notifyClose = document.getElementById("myNotifyCloseIcon");
-  if (type === "error") {
-    notifyBox.style.backgroundColor = "#ffc7c7";
-    notifyBox.style.borderColor = "red";
-    notifyCheck.style.display = "none";
-    notifyClose.style.display = "flex";
-  } else if (type === "success") {
-    notifyBox.style.backgroundColor = "#DDF3EC";
-    notifyBox.style.borderColor = "#1CAE81";
-    notifyCheck.style.display = "flex";
-    notifyClose.style.display = "none";
-  } else {
-    notifyCheck.style.display = "none";
-    notifyClose.style.display = "none";
-  }
-  notify.style.display = "flex";
-  notifyText.innerHTML = text;
-  setTimeout(() => {
-    notify.style.top = "100px";
-    notify.style.opacity = "1";
-  }, 10);
-  setTimeout(() => {
-    notify.style.top = "80px";
-    notify.style.opacity = "0";
-  }, 3000);
-  setTimeout(() => {
-    notify.style.display = "none";
-  }, 3500); */
 };
