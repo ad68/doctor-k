@@ -6,7 +6,7 @@ import Slider from "./components/ListItems";
 import { ComponentLoading } from "@/common";
 import { useAxios } from "@/hooks";
 import { api } from "@/api";
-import { consoleLog_BlackGreen, consoleLog_Blue, showNotify } from "@/helper";
+import { notify } from "@/helper";
 import { NotifyMessage, NotifyType } from "@/enums";
 
 // ────────────────────────────────────────────────────────── I ──────────
@@ -32,7 +32,8 @@ export default function Index() {
         setLoading(false);
       })
       .catch((err) => {
-        setLoading(false), showNotify(NotifyType.ERROR, NotifyMessage.GLOBAL_ERROR);
+        setLoading(false);
+        notify.Error(NotifyMessage.GLOBAL_ERROR);
       });
   };
   // ─── Life Cycle ─────────────────────────────────────────────────────────────────

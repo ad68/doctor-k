@@ -1,6 +1,6 @@
 import { notifyMessage, notifyType } from "@/config";
 import { NotifyMessage, NotifyType } from "@/enums";
-import { consoleLog_BlackOrange, consoleLog_BlackRed, showNotify } from "@/helper";
+import { notify } from "@/helper";
 import axios from "axios";
 
 const useAxios = axios.create();
@@ -16,7 +16,7 @@ useAxios.interceptors.response.use(
     // Do something with response error
 
     if (error.code === "ERR_NETWORK") {
-      showNotify(NotifyMessage.NETWORK_ERROR, NotifyType.ERROR)
+      notify(NotifyMessage.NETWORK_ERROR)
     }
     else {
       return Promise.reject(error);
