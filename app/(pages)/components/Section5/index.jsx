@@ -4,6 +4,7 @@ import Image from "next/image";
 import Expertise from "./components/Expertise";
 import { useAxios } from "@/hooks";
 import { api } from "@/api";
+import { consoleLog_BlackRed } from "@/helper";
 // ────────────────────────────────────────────────────────── I ──────────
 //   :::::: C O M P O N E N T : :  :   :    :     :        :          :
 // ────────────────────────────────────────────────────────────────────
@@ -15,15 +16,7 @@ export default function Index() {
   // ─── States ─────────────────────────────────────────────────────────────────────
   const [data, setData] = useState([]);
   // ─── Functions ──────────────────────────────────────────────────────────────────
-  const getExpertiseList = () => {
-    useAxios
-      .get(api.expertise.getExpertiseList)
-      .then((res) => {
-        console.log(res.data);
-        setData(res?.data);
-      })
-      .catch((err) => {});
-  };
+
   const getImgUrl = (value) => {
     switch (value) {
       case "general_practitioner":
@@ -38,10 +31,20 @@ export default function Index() {
 
       case "Anesthesiologist":
         return "/images/brain.png";
-        default:
-          break;
+      default:
+        break;
     }
   };
+  const getExpertiseList = () => {
+    useAxios
+      .get(api.Expertise.getExpertiseList)
+      .then((res) => {
+        console.log(res.data);
+        setData(res?.data);
+      })
+      .catch((err) => { });
+  };
+
 
   // ─── Life Cycle ─────────────────────────────────────────────────────────────────
   useEffect(() => {
@@ -85,7 +88,7 @@ export default function Index() {
               <Expertise
                 item={item}
                 key={index}
-                img={() => getImgUrl(item?.latinName)}
+                img={getImgUrl(item?.latinName)}
               />
             ))}
 

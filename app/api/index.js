@@ -1,8 +1,7 @@
 const baseUrl = process.env.NEXT_PUBLIC_API_URL;
 export const api = {
-  expertise: {
+  Expertise: {
+    getTopExpertisesPhysicians: baseUrl + "expertise/TopExpertisesPhysicians",
     getExpertiseList: baseUrl + "expertise",
-    GetTopExpertisesPhysicians: baseUrl + "expertise/TopExpertisesPhysicians",
-   
   },
 };
