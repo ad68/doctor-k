@@ -2,9 +2,11 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Expertise from "./components/Expertise";
-import { useAxios } from "@/hooks";
+import { useAxios, useFetch } from "@/hooks";
 import { api } from "@/api";
-import { consoleLog_BlackRed } from "@/helper";
+import { consoleLog_BlackRed, notify } from "@/helper";
+import { ComponentLoading } from "@/common";
+import { NotifyMessage } from "@/enums";
 // ────────────────────────────────────────────────────────── I ──────────
 //   :::::: C O M P O N E N T : :  :   :    :     :        :          :
 // ────────────────────────────────────────────────────────────────────
@@ -12,52 +14,28 @@ import { consoleLog_BlackRed } from "@/helper";
 
 export default function Index() {
   // ─── Global Variable ────────────────────────────────────────────────────────────
-
+  const imageUrl = [
+    { url: "/images/brain.png", name: "general_practitioner" },
+    { url: "/images/brain.png", name: "Family_doctor" },
+    { url: "/images/brain.png", name: "Orthopedist" },
+    { url: "/images/brain.png", name: "Radiologist" },
+    { url: "/images/brain.png", name: "Anesthesiologist" },
+  ];
+  const [data,loading,Reload]=useFetch(api.Expertise.getExpertiseList)
   // ─── States ─────────────────────────────────────────────────────────────────────
-  const [data, setData] = useState([]);
-  // ─── Functions ──────────────────────────────────────────────────────────────────
 
-  const getImgUrl = (value) => {
-    switch (value) {
-      case "general_practitioner":
-        return "/images/brain.png";
-      case "Family_doctor":
-        return "/images/brain.png";
-
-      case "Orthopedist":
-        return "/images/brain.png";
-      case "Radiologist":
-        return "/images/brain.png";
-
-      case "Anesthesiologist":
-        return "/images/brain.png";
-      default:
-        break;
-    }
-  };
-  const getExpertiseList = () => {
-    useAxios
-      .get(api.Expertise.getExpertiseList)
-      .then((res) => {
-        console.log(res.data);
-        setData(res?.data);
-      })
-      .catch((err) => { });
-  };
-
+  // ─── Functions ─────────────────────────────────────────────────────────────────
 
   // ─── Life Cycle ─────────────────────────────────────────────────────────────────
-  useEffect(() => {
-    getExpertiseList();
-  }, []);
-  //
+useEffect(()=>{console.log(data)},[data])
   // ──────────────────────────────────────────────────── I ──────────
   //   :::::: R E N D E R : :  :   :    :     :        :          :
   // ──────────────────────────────────────────────────────────────
   //
   return (
     <>
-      <section className="grid justify-items-center bg-[#F8FCFF] xl:w-full">
+      <section className="relative grid justify-items-center bg-[#F8FCFF] xl:w-full">
+        <ComponentLoading  show={loading}/>
         <section className="grid gap-6 xl:w-[1170px]">
           <header className="flex justify-between">
             <section className="flex gap-[10px]">
@@ -88,22 +66,12 @@ export default function Index() {
               <Expertise
                 item={item}
                 key={index}
-                img={getImgUrl(item?.latinName)}
+                img={imageUrl.find((obj=>obj.name===item.latinName)).url}
               />
             ))}
-
-            {/* <Expertise img="/images/illust.png" title="روانشناسی" />
-            <Expertise img="/images/brain.png" title="مغز و اعصاب" />
-            <Expertise img="/images/heart.png" title="بیماری‌های ‌‌ریوی" />
-            <Expertise img="/images/kol.png" title="کلیه(نفرولوژی)" />
-            <Expertise img="/images/images.png" title="زنان و زایمان" />
-            <Expertise img="/images/ear.png" title="گوش و حلق و بینی" />
-            <Expertise img="/images/bland.png" title="خون" />
-            <Expertise img="/images/eye.png" title="چشم پزشکی" />
-            <Expertise img="/images/teeth.png" title="دندان پزشکی" />
-            <Expertise img="/images/ghodad.png" title="غدد و متابولیسم" />
-            <Expertise img="/images/baby.png" title="کودکان" /> */}
+          <button onClick={Reload}>reload</button>
           </section>
+
         </section>
       </section>
     </>
