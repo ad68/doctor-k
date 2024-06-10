@@ -26,7 +26,7 @@ export default function Index() {
   const getList = () => {
     setLoading(true);
     useAxios
-      .get(api.Expertise.GetTopExpertisesPhysicians)
+      .get(api.Expertise.getTopExpertisesPhysicians)
       .then((res) => {
         setList(res.data);
         setFilter(res.data[0])
