@@ -4,9 +4,9 @@ import localFont from "next/font/local";
 import { Header } from "./components/Header";
 import Footer from "./components/Footer";
 import TopLoader from "../common/TopLoader";
-import ScrollTop from "./components/ScrollTop";
 import { Toaster } from "react-hot-toast";
-
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 const figtree = Figtree({
   display: "block",
   subsets: ["latin"],
@@ -49,7 +49,6 @@ const yekanbakh = localFont({
   ],
   variable: "--font-yekanbakh",
 });
-
 export const metadata = {
   title: "  نام سایت | صفحه اصلی",
   description: "توضیحات",

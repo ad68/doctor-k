@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { IconClose, IconNotifyCheck, IconSpcCheck } from "../icons";
-import Icon from "@ant-design/icons/lib/components/Icon";
+
 
 //
 // ────────────────────────────────────────────────────────── I ──────────
@@ -44,7 +44,6 @@ export default function Index() {
         >
           <IconClose width={28} height={28} color="red" fill="white" />
         </section>
-
         <span
           id="myNotifyText"
           className="mr-3 text-sm font-normal text-black"

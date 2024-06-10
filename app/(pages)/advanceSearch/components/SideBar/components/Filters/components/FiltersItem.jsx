@@ -1,12 +1,12 @@
 "use client";
 import React from "react";
-
+import Image from "next/image";
 // ────────────────────────────────────────────────────────── I ──────────
 //   :::::: C O M P O N E N T : :  :   :    :     :        :          :
 // ────────────────────────────────────────────────────────────────────
 //
 
-export default function Index({ title }) {
+export default function Index({title}) {
   // ─── Global Variable ────────────────────────────────────────────────────────────
 
   // ─── States ─────────────────────────────────────────────────────────────────────
@@ -20,11 +20,12 @@ export default function Index({ title }) {
   //   :::::: R E N D E R : :  :   :    :     :        :          :
   // ──────────────────────────────────────────────────────────────
   //
-  return (
-    <>
-      <section className="transition-all h-full  text-sm leading-[24.18px] font-medium flex justify-center items-center rounded-[10px] border border-solid border-[#D1D1D1] px-4 text-[#707070] hover:border-[#2C8EE8] hover:bg-[#2C8EE8] hover:text-white">
-        {title}
-      </section>
-    </>
-  );
+  return <>
+  <section className="border-[1px] border-[#D1D1D1] text-[12px] font-normal flex items-center justify-around gap-2 py-1 rounded-[20px] text-[#707070]  ">
+    
+    <button className="flex items-center gap-1 ">
+    <span>{title}</span>
+        <Image src="/images/icons/Vector.svg" width={16} height={16} alt=""/>
+    </button>
+    </section></>;
 }

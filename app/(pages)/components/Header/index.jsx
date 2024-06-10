@@ -5,7 +5,7 @@ export const Header = () => {
     <>
       <header className="fixed top-0 flex h-[72px] w-full items-center bg-[#366FA7]  px-[98px] text-white z-[1000]">
         <nav className="w-full">
-          <header className="flex w-full items-center justify-between">
+          <header className="flex w-[1170px] mx-auto items-center justify-between ">
             <section className="flex items-center gap-8">
               <h1 className="text-[24px] font-bold cursor-pointer">دکتر کا</h1>
               <span className="flex items-center gap-2 text-sm">

@@ -1,8 +1,1 @@
-export const notifyType = {
-  success: "success",
-  error: "success",
-};
-export const notifyMessage = {
-  successAction: "عملیات مورد نظر با موفقیت انجام شد",
-  globalError: "خطایی رخ داده است",
-};
+export const imageBaseUrl = "http://192.168.10.110:8080/file-management/minio/download?objectName=";

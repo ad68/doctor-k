@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useContext, useEffect } from "react";
-import { scrollToTop } from "@/helper";
+import { consoleLog_BlackRed, scrollToTop } from "@/helper";
 import Image from "next/image";
 //
 // ────────────────────────────────────────────────────────── I ──────────
@@ -10,13 +10,11 @@ import Image from "next/image";
 
 export default function Index() {
   // ─── Global Variable ────────────────────────────────────────────────────────────
-
   // ─── States ─────────────────────────────────────────────────────────────────────
   const [scrollYPosition, setScrollYPosition] = useState(0);
   // ─── Life Cycle ─────────────────────────────────────────────────────────────────
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
-
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -29,6 +27,9 @@ export default function Index() {
     const newScrollYPosition = window.pageYOffset;
     setScrollYPosition(newScrollYPosition);
   };
+  /* useEffect(() => {
+     consoleLog_BlackRed(scrollYPosition)
+   }, [scrollYPosition]) */
   //
   // ──────────────────────────────────────────────────── I ──────────
   //   :::::: R E N D E R : :  :   :    :     :        :          :
