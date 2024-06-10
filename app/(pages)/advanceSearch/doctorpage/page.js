@@ -4,6 +4,7 @@ import { IconArrowLeft, IconArrowRight } from "@/common/icons";
 import DocInfo from "./components/DocInfo";
 import InfoBox from "./components/InfoBox";
 import Tabs from "./components/Tabs";
+import Counseling from "./components/Counseling";
 // ────────────────────────────────────────────────────────── I ──────────
 //   :::::: C O M P O N E N T : :  :   :    :     :        :          :
 // ────────────────────────────────────────────────────────────────────
@@ -24,7 +25,7 @@ export default function Index() {
   // ──────────────────────────────────────────────────────────────
   //
   return <>
-  <section className="h-[1000px] mt-[90px] "> 
+  <section className=" my-[90px] "> 
     <header className="flex gap-2 items-center text-[12px] font-normal w-[1170px] mx-auto">
         <span>صفحه‌ی اصلی</span>
             <IconArrowLeft
@@ -45,10 +46,13 @@ export default function Index() {
             <span className="text-[14px] font-bold text-[#2C8EE8]">دکتر حمید شادلو</span>
     </header>
     <section className="w-full h-[72px] bg-[#2C8EE8] mt-4"></section>
-    <section className="w-[1170px] mx-auto mt-[-40px] p-px">
+    <section className="w-[1170px] mx-auto mt-[-40px] p-px flex gap-6">
         <section className="w-[769px] grid gap-4">
         <InfoBox image={"/images/Man1.png"} name={"دکتر حمید شادلو"} field={"تخصص بیماری های پوست (درماتولوژی)"}/>
         <Tabs />
+        </section>
+        <section>
+          <Counseling/>
         </section>
     </section>
   </section>

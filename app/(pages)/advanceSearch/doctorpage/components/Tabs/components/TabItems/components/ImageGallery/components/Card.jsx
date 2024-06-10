@@ -1,16 +1,12 @@
 "use client";
-import React  from "react";
-import Introduction from "./components/Introduction";
-import Comments from "./components/Comments";
-import HealthCenters from "./components/HealthCenters";
-import Articles from "./components/Articles";
-import ImageGallery from "./components/ImageGallery";
+import React from "react";
+import Image from "next/image";
 // ────────────────────────────────────────────────────────── I ──────────
 //   :::::: C O M P O N E N T : :  :   :    :     :        :          :
 // ────────────────────────────────────────────────────────────────────
 //
 
-export default function Index({activeTab}) {
+export default function Index({image, title, }) {
   // ─── Global Variable ────────────────────────────────────────────────────────────
 
   // ─── States ─────────────────────────────────────────────────────────────────────
@@ -24,12 +20,11 @@ export default function Index({activeTab}) {
   //   :::::: R E N D E R : :  :   :    :     :        :          :
   // ──────────────────────────────────────────────────────────────
   //
-  return <>
-  {activeTab===1 ? <Introduction/>:<></>}
-  {activeTab===2 ? <Comments /> : <></>}
-  {activeTab===3 ? <HealthCenters/> : <></>}
-  {activeTab===4 ? <Articles/> : <></>}
-  {activeTab===5? <ImageGallery/> : <></>}
-  
-  </>;
+  return <> <section className="w-[223px] h-[309px] border-[1px] rounded-[15px] grid p-3">
+    <Image src={image} width={191} height={205} alt="" className="rounded-[9px] mx-auto w-[191px] h-[205px]"/>
+
+        <span className="text-[14px] font-bold">{title}</span>
+
+    
+    </section></>;
 }

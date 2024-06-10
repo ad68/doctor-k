@@ -6,7 +6,7 @@ import Image from "next/image";
 // ────────────────────────────────────────────────────────────────────
 //
 
-export default function Index({ image, name, text }) {
+export default function Index() {
   // ─── Global Variable ────────────────────────────────────────────────────────────
 
   // ─── States ─────────────────────────────────────────────────────────────────────
@@ -22,30 +22,58 @@ export default function Index({ image, name, text }) {
   //
   return (
     <>
-      <section className="mx-auto h-auto w-[724px] rounded-[16px] border-[1px] px-6 py-4 grid gap-2">
-        <header className="flex justify-between items-center">
-          <section className="flex gap-3 items-center">
+      <section className="h-[285px] w-[327px] rounded-[8px] border-[1px] p-4  ">
+        <header className="flex justify-between">
+          <span className="text-[14px] font-bold">پلن‌های مشاوره تلفنی</span>
+          <button className="flex items-center gap-1">
+            <span className="text-[12px] font-normal text-[#2C8EE8]">
+              راهنما
+            </span>
             <Image
-              src={image}
-              width={40}
-              height={40}
+              src={"/images/icons/info-circle.svg"}
+              width={16}
+              height={16}
               alt=""
-              className="rounded-full"
             />
-            <span className="text-[16px] font-bold">{name}</span>
-          </section>
-          <section className="flex gap-4 items-center">
-            <section className="flex gap-1 items-center">
-                <Image src={"/images/icons/VectorStar.svg"} width={24} height={24} alt=""/>
-                <span className="text-[14px] font-normal">4.8</span>
-            </section>
-            <section className="flex gap-1 items-center">
-                <Image src={"/images/icons/clock-16.svg"} width={16} height={16} alt=""/>
-                <span className="text-[12px] font-normal text-[#909090]">1403/02/23  15:53</span>
-            </section>
-          </section>
+          </button>
         </header>
-        <p className="text-[14px] font-normal text-[#707070] text-justify leading-[24.18px]">{text}</p>
+        <p className="text-justify text-[12px] font-normal leading-[20.73px] text-[#707070] my-6">
+          با انتخاب زمان مشاوره دلخواه میتوانید برای همین لحظه مشاوره را فعال
+          کنید.
+        </p>
+        <section>
+          <section className="flex items-center gap-1  mb-4">
+            <Image
+              src={"/images/icons/clock-16.svg"}
+              width={16}
+              height={16}
+              alt=""
+            />
+            <span className="text-[12px] font-normal text-[#707070]">
+              مدت زمان گفتگو:
+            </span>
+          </section>
+          <section className="relative">
+            <input
+              type="text"
+              className="h-[40px] w-[295px] rounded-[5px] border-[1px] px-2 text-[12px] font-normal text-[#505050]"
+              value={"20 دقیقه"}
+            />
+            <Image
+              src={"/images/icons/arrow-down.svg"}
+              width={16}
+              height={16}
+              alt=""
+              className="absolute left-[2%] top-[30%]"
+            />
+          </section>
+          <section>
+            <section className="flex items-center gap-1 mt-6">
+              <Image src={"/images/icons/receipt-minus_16.svg" } width={16} height={16} alt=""/>
+              <span className="text-[12px] font-normal text-[#505050]">هزینه:</span>
+            </section>
+          </section>
+        </section>
       </section>
     </>
   );
