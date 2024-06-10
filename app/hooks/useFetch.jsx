@@ -3,13 +3,14 @@ import React, { useEffect, useState } from "react";
 import { useAxios } from ".";
 import { notify } from "@/helper";
 import { NotifyMessage } from "@/enums";
+import eslintConfig from "../../eslint.config";
 
 // ────────────────────────────────────────────────────────── I ──────────
 //   :::::: C O M P O N E N T : :  :   :    :     :        :          :
 // ────────────────────────────────────────────────────────────────────
 //
 
-export default function Index( url) {
+export default function Index(url) {
   // ─── Global Variable ────────────────────────────────────────────────────────────
 
   // ─── States ─────────────────────────────────────────────────────────────────────
@@ -25,19 +26,20 @@ export default function Index( url) {
         setData(res?.data);
         setLoading(false);
       })
-      .catch((err)=>{
+      .catch((err) => {
         setLoading(false)
         notify.Error(NotifyMessage.GLOBAL_ERROR)
       });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [reload]);
   // ─── Functions ──────────────────────────────────────────────────────────────────
-const Reload=()=>{
+  const Reload = () => {
     setReload(!reload)
-}
+  }
   //
   // ──────────────────────────────────────────────────── I ──────────
   //   :::::: R E N D E R : :  :   :    :     :        :          :
   // ──────────────────────────────────────────────────────────────
   //
-  return [data,loading,Reload];
+  return [data, loading, Reload];
 }

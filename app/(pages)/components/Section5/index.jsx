@@ -2,11 +2,11 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Expertise from "./components/Expertise";
-import { useAxios, useFetch } from "@/hooks";
+import { useFetch } from "@/hooks";
 import { api } from "@/api";
-import { consoleLog_BlackRed, notify } from "@/helper";
+
 import { ComponentLoading } from "@/common";
-import { NotifyMessage } from "@/enums";
+
 // ────────────────────────────────────────────────────────── I ──────────
 //   :::::: C O M P O N E N T : :  :   :    :     :        :          :
 // ────────────────────────────────────────────────────────────────────
@@ -21,13 +21,13 @@ export default function Index() {
     { url: "/images/brain.png", name: "Radiologist" },
     { url: "/images/brain.png", name: "Anesthesiologist" },
   ];
-  const [data,loading,Reload]=useFetch(api.Expertise.getExpertiseList)
+  const [data, loading] = useFetch(api.Expertise.getExpertiseList)
   // ─── States ─────────────────────────────────────────────────────────────────────
 
   // ─── Functions ─────────────────────────────────────────────────────────────────
 
   // ─── Life Cycle ─────────────────────────────────────────────────────────────────
-useEffect(()=>{console.log(data)},[data])
+
   // ──────────────────────────────────────────────────── I ──────────
   //   :::::: R E N D E R : :  :   :    :     :        :          :
   // ──────────────────────────────────────────────────────────────
@@ -35,7 +35,7 @@ useEffect(()=>{console.log(data)},[data])
   return (
     <>
       <section className="relative grid justify-items-center bg-[#F8FCFF] xl:w-full">
-        <ComponentLoading  show={loading}/>
+        <ComponentLoading show={loading} />
         <section className="grid gap-6 xl:w-[1170px]">
           <header className="flex justify-between">
             <section className="flex gap-[10px]">
@@ -66,10 +66,10 @@ useEffect(()=>{console.log(data)},[data])
               <Expertise
                 item={item}
                 key={index}
-                img={imageUrl.find((obj=>obj.name===item.latinName)).url}
+                img={imageUrl.find((obj => obj.name === item.latinName))?.url}
               />
             ))}
-          <button onClick={Reload}>reload</button>
+
           </section>
 
         </section>
