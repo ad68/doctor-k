@@ -24,37 +24,27 @@ export default function Index() {
   //   :::::: R E N D E R : :  :   :    :     :        :          :
   // ──────────────────────────────────────────────────────────────
   //
-  return <>
-  <section className=" my-[90px] "> 
-    <header className="flex gap-2 items-center text-[12px] font-normal w-[1170px] mx-auto">
-        <span>صفحه‌ی اصلی</span>
-            <IconArrowLeft
-              fill="#2C8EE8"
-              color="#2C8EE8"
-              width={11}
-              height={13.73}
-              viewBox="0 -2 15 15"
-            />
-            <span>پزشکان پوست،‌ مو و زیبایی</span>
-            <IconArrowLeft
-              fill="#2C8EE8"
-              color="#2C8EE8"
-              width={11}
-              height={13.73}
-              viewBox="0 -2 15 15"
-            />
-            <span className="text-[14px] font-bold text-[#2C8EE8]">دکتر حمید شادلو</span>
-    </header>
-    <section className="w-full h-[72px] bg-[#2C8EE8] mt-4"></section>
-    <section className="w-[1170px] mx-auto mt-[-40px] p-px flex gap-6">
-        <section className="w-[769px] grid gap-4">
-        <InfoBox image={"/images/Man1.png"} name={"دکتر حمید شادلو"} field={"تخصص بیماری های پوست (درماتولوژی)"}/>
-        <Tabs />
+  return (
+    <>
+      <section className=' my-[90px] '>
+        <header className='flex gap-2 items-center text-[12px] font-normal w-[1170px] mx-auto'>
+          <span>صفحه‌ی اصلی</span>
+          <IconArrowLeft fill='#2C8EE8' color='#2C8EE8' width={11} height={13.73} viewBox='0 -2 15 15' />
+          <span>پزشکان پوست،‌ مو و زیبایی</span>
+          <IconArrowLeft fill='#2C8EE8' color='#2C8EE8' width={11} height={13.73} viewBox='0 -2 15 15' />
+          <span className='text-[14px] font-bold text-[#2C8EE8]'>دکتر حمید شادلو</span>
+        </header>
+        <section className='w-full h-[72px] bg-[#2C8EE8] mt-4'></section>
+        <section className='w-[1170px] mx-auto mt-[-40px] p-px flex gap-6'>
+          <section className='w-[769px] grid gap-4'>
+            <InfoBox image={"/images/Man1.png"} name={"دکتر حمید شادلو"} field={"تخصص بیماری های پوست (درماتولوژی)"} />
+            <Tabs />
+          </section>
+          <section>
+            <Counseling />
+          </section>
         </section>
-        <section>
-          <Counseling/>
-        </section>
-    </section>
-  </section>
-  </>;
+      </section>
+    </>
+  );
 }
