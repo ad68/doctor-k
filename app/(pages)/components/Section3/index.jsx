@@ -21,7 +21,8 @@ export default function Index() {
 
   // ─── Life Cycle ─────────────────────────────────────────────────────────────────
   useEffect(() => {
-    setFilter(data[0])
+    if(data?.length>0){ setFilter(data[0])}
+   
   }, [data]);
   useEffect(() => {
     if (filter?.physicians?.length > 0) {

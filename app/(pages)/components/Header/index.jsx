@@ -1,13 +1,43 @@
 "use client";
 import Image from "next/image";
-export const Header = () => {
+import { Modal } from "@/common";
+import SignIn from "./components/SignIn";
+import { useState } from "react";
+import { title } from "process";
+
+// ────────────────────────────────────────────────────────── I ──────────
+//   :::::: C O M P O N E N T : :  :   :    :     :        :          :
+// ────────────────────────────────────────────────────────────────────
+//
+
+export default function Index() {
+  // ─── Global Variable ────────────────────────────────────────────────────────────
+
+  // ─── States ─────────────────────────────────────────────────────────────────────
+const[signInModal,setSignInModal] = useState(false)
+
+  // ─── Life Cycle ─────────────────────────────────────────────────────────────────
+
+  // ─── Functions ──────────────────────────────────────────────────────────────────
+const closeModal=()=>{
+  setSignInModal(false)
+}
+
+  //
+  // ──────────────────────────────────────────────────── I ──────────
+  //   :::::: R E N D E R : :  :   :    :     :        :          :
+  // ──────────────────────────────────────────────────────────────
+  //
   return (
     <>
-      <header className="fixed top-0 flex h-[72px] w-full items-center bg-[#366FA7]  px-[98px] text-white z-[1000]">
+      <Modal open={signInModal} onClose={closeModal} width={442} >
+        <SignIn />
+      </Modal>
+      <header className="fixed top-0 z-[1000] flex h-[72px] w-full items-center  bg-[#366FA7] px-[98px] text-white">
         <nav className="w-full">
-          <header className="flex w-[1170px] mx-auto items-center justify-between ">
+          <header className="mx-auto flex w-[1170px] items-center justify-between ">
             <section className="flex items-center gap-8">
-              <h1 className="text-[24px] font-bold cursor-pointer">دکتر کا</h1>
+              <h1 className="cursor-pointer text-[24px] font-bold">دکتر کا</h1>
               <span className="flex items-center gap-2 text-sm">
                 <Image
                   src="/images/icons/fluent_call-32-filled.svg"
@@ -58,9 +88,16 @@ export const Header = () => {
               </a>
             </section>
             <section className="flex items-center gap-7">
-              <Image src="/images/icons/search-24.svg" width={24} height={24} className="cursor-pointer" alt=""/>
-              <span className="flex items-center gap-1 text-sm">
-                <span className="cursor-pointer">ثبت نام</span>/<span className="cursor-pointer">ورود </span>
+              <Image
+                src="/images/icons/search-24.svg"
+                width={24}
+                height={24}
+                className="cursor-pointer"
+                alt=""
+              />
+              <span onClick={()=>{setSignInModal(true)}} className="flex items-center gap-1 text-sm">
+                <span className="cursor-pointer">ثبت نام</span>/
+                <span className="cursor-pointer">ورود </span>
               </span>
             </section>
           </header>
@@ -68,4 +105,4 @@ export const Header = () => {
       </header>
     </>
   );
-};
+}

@@ -18,6 +18,7 @@ export default function Index(url) {
   const [reload, setReload] = useState(false);
   const [data, setData] = useState([]);
   // ─── Life Cycle ─────────────────────────────────────────────────────────────────
+
   useEffect(() => {
     setLoading(true);
     useAxios
@@ -32,6 +33,7 @@ export default function Index(url) {
       });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [reload]);
+ 
   // ─── Functions ──────────────────────────────────────────────────────────────────
   const Reload = () => {
     setReload(!reload)
