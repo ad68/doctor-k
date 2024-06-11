@@ -4,8 +4,9 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: "https",
-        hostname: "tazminmashin.ir",
+        protocol: "http",
+        hostname: "192.168.10.110",
+        port: "8080",
       },
       {
         protocol: "https",

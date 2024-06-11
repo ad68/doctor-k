@@ -64,7 +64,8 @@ export default function Index({ list }) {
       <Slider {...settings}>
         {list?.map((item, index) => (<Item
           key={index}
-          img="/images/Rectangle.png"
+          img={"/images/Rectangle.png"}
+          /*  img={imageBaseUrl + item?.mainImage} */
           name={`${item.firstName} ${item.lastName}`}
           rate="3.9"
           status="در حال مشاوره"

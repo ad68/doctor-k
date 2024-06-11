@@ -25,7 +25,7 @@ export default function Index({ list, setFilter, filter }) {
     <>
       <section className="h-9 w-full flex gap-4 mb-8">
         {list.map((item, index) => (
-          <Item active={item.name === filter.name} onClick={() => setFilter(item)} key={index} title={item.name} />
+          <Item active={item.name === filter?.name} onClick={() => setFilter(item)} key={index} title={item.name} />
         ))}
         {/*   <Item title="پوست و مو" />
         <Item title="قلب و عروق" />

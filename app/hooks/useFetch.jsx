@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useAxios } from ".";
 import { notify } from "@/helper";
 import { NotifyMessage } from "@/enums";
-import eslintConfig from "../../eslint.config";
+
 
 // ────────────────────────────────────────────────────────── I ──────────
 //   :::::: C O M P O N E N T : :  :   :    :     :        :          :
