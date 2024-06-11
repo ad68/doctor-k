@@ -26,10 +26,10 @@ export default function Index() {
   // ──────────────────────────────────────────────────────────────
   //
   return <>
-  <section className="bg-white px-6 py-3 h-[553px] border-[1px] w-full rounded-[20px]">
+  <section className="bg-white h-auto px-6 py-3 border-[1px] w-full rounded-[20px]">
     
     <TabButton setActiveTab={setActiveTab} avtiveTab={avtiveTab}/>
-    <TabItems setActiveTab={setActiveTab} activeTab={avtiveTab}/>
+    <TabItems  activeTab={avtiveTab}/>
 
     </section></>;
 }
