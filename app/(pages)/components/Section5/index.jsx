@@ -62,7 +62,7 @@ export default function Index() {
             </button>
           </header>
           <section className="mb-[104px] grid h-[344px] grid-cols-6 grid-rows-2 gap-6">
-            {data.map((item, index) => (
+            {data?.map((item, index) => (
               <Expertise
                 item={item}
                 key={index}

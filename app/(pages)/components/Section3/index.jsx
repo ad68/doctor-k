@@ -34,7 +34,7 @@ export default function Index() {
       })
       .catch((err) => {
         setLoading(false);
-        notify.Error(NotifyMessage.GLOBAL_ERROR);
+
       });
   };
   // ─── Life Cycle ─────────────────────────────────────────────────────────────────
