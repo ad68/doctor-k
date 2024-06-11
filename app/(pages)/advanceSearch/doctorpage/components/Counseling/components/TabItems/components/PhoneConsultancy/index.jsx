@@ -1,6 +1,8 @@
 "use client";
 import React from "react";
 import Image from "next/image";
+import { IconArrowLeft, IconArrowRight } from "@/common/icons";
+
 // ────────────────────────────────────────────────────────── I ──────────
 //   :::::: C O M P O N E N T : :  :   :    :     :        :          :
 // ────────────────────────────────────────────────────────────────────
@@ -22,6 +24,9 @@ export default function Index() {
   //
   return (
     <>
+    <section>
+
+  
       <section className="h-[285px] w-[327px] rounded-[8px] border-[1px] p-4  ">
         <header className="flex justify-between">
           <span className="text-[14px] font-bold">پلن‌های مشاوره تلفنی</span>
@@ -67,14 +72,28 @@ export default function Index() {
               className="absolute left-[2%] top-[30%]"
             />
           </section>
-          <section>
+          <section className="flex justify-between items-baseline">
             <section className="flex items-center gap-1 mt-6">
               <Image src={"/images/icons/receipt-minus_16.svg" } width={16} height={16} alt=""/>
               <span className="text-[12px] font-normal text-[#505050]">هزینه:</span>
             </section>
+            <span className="text-[14px] font-medium"><span className="text-[24px] font-bold text-[#2C8EE8]">100،000</span> تومان</span>
           </section>
         </section>
       </section>
+      <button className="h-[48px] w-full rounded-[10px] mt-4 bg-[#2C8EE8] text-white text-[14px] font-medium ">
+        <span>ادامه و پرداخت</span>
+        <span className="absolute bottom-[0%] left-0 flex h-[24px] w-[38px] cursor-pointer items-center justify-center rounded-[50px] ">
+            <IconArrowLeft
+              fill="white"
+              color="white"
+              width={11}
+              height={18.73}
+              viewBox="0 -2 15 15"
+            />
+          </span>
+      </button>
+        </section>
     </>
   );
 }

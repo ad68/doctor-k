@@ -1,14 +1,12 @@
 "use client";
-import React  from "react";
+import React from "react";
 
-import PhoneConsultancy from "./components/PhoneConsultancy";
-import TextConsultancy from "./components/TextConsultancy";
 // ────────────────────────────────────────────────────────── I ──────────
 //   :::::: C O M P O N E N T : :  :   :    :     :        :          :
 // ────────────────────────────────────────────────────────────────────
 //
 
-export default function Index({activeTab}) {
+export default function Index() {
   // ─── Global Variable ────────────────────────────────────────────────────────────
 
   // ─── States ─────────────────────────────────────────────────────────────────────
@@ -23,11 +21,5 @@ export default function Index({activeTab}) {
   // ──────────────────────────────────────────────────────────────
   //
   return <>
-  <section>
-    {activeTab===1? <PhoneConsultancy/> : <></>}
-    {activeTab === 2 ? <TextConsultancy /> : <></>}
-    
-  </section>
-  
-  </>;
+  <section className="h-[285px]"></section></>;
 }
