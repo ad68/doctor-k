@@ -16,7 +16,7 @@ useAxios.interceptors.response.use(
     // Do something with response error
 
     if (error.code === "ERR_NETWORK") {
-      notify(NotifyMessage.NETWORK_ERROR)
+      notify.Error(NotifyMessage.NETWORK_ERROR)
     }
     else {
       return Promise.reject(error);

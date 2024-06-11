@@ -6,7 +6,7 @@ import Image from "next/image";
 // ────────────────────────────────────────────────────────────────────
 //
 
-export default function Index({img , title}) {
+export default function Index({item,img}) {
   // ─── Global Variable ────────────────────────────────────────────────────────────
 
   // ─── States ─────────────────────────────────────────────────────────────────────
@@ -23,7 +23,7 @@ export default function Index({img , title}) {
   return <>
   <section className="bg-white w-[175px] h-[160px] rounded-2xl grid justify-items-center content-center	gap-[10px] ">
     <Image src={img} width={79} height={79} alt=""/>
-    <h1 className="text-[14px] font-bold">{title}</h1>
+    <h1 className="text-[14px] font-bold">{item?.name}</h1>
   </section>
   </>;
 }

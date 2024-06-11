@@ -13,10 +13,14 @@ useAxiosWithToken.interceptors.response.use(
     return response;
   },
   function (error) {
-    // Any status codes that falls outside the range of 2xx cause this function to trigger
-    // Do something with response error
-    window.location.href = "/login";
-    return Promise.reject(error);
+    if (error.code === "ERR_NETWORK") {
+      notify.Error(NotifyMessage.NETWORK_ERROR)
+    }
+    else {
+      window.location.href = "/login";
+      return Promise.reject(error);
+    }
+
   },
 );
 export default useAxiosWithToken;

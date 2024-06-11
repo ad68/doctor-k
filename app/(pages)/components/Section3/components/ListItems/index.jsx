@@ -1,8 +1,8 @@
 "use client";
 import React from "react";
 import Item from "./components/Item";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+// import "slick-carousel/slick/slick.css";
+// import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 /* import {IconArrowLeft, IconArrowRight} from "@/common/icons";
 import Icon from "@ant-design/icons/lib/components/Icon"; */
@@ -64,7 +64,8 @@ export default function Index({ list }) {
       <Slider {...settings}>
         {list?.map((item, index) => (<Item
           key={index}
-          img="/images/Rectangle.png"
+          img={"/images/Rectangle.png"}
+          /*  img={imageBaseUrl + item?.mainImage} */
           name={`${item.firstName} ${item.lastName}`}
           rate="3.9"
           status="در حال مشاوره"
