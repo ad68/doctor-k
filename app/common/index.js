@@ -14,6 +14,7 @@ import DeleteModal from "./DeleteModal";
 import Notify from "./Notify";
 import ComponentLoading from "./ComponentLoading";
 import ErrorMessage from "./Message/ErrorMessage";
+import UserChat from "./UserChat";
 export {
   Select,
   AsyncSelect,
@@ -31,4 +32,5 @@ export {
   Notify,
   ComponentLoading,
   ErrorMessage,
+  UserChat,
 };

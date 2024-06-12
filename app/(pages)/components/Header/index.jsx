@@ -31,7 +31,7 @@ const closeModal=()=>{
   return (
     <>
       <Modal open={signInModal} onClose={closeModal} width={442} >
-        <SignIn />
+        <SignIn closeModal={closeModal} />
       </Modal>
       <header className="fixed top-0 z-[1000] flex h-[72px] w-full items-center  bg-[#366FA7] px-[98px] text-white">
         <nav className="w-full">

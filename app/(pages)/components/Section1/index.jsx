@@ -37,7 +37,7 @@ export default function Index() {
           </h2>
           <SearchBox />
           <AdvanceSearch />
-        </section>            c                                   
+        </section>                                        
       </section>
       <section className="mt-[-60px] flex justify-center p-px">
         <Counseling />

@@ -1,20 +1,16 @@
 "use client";
+import React from "react";
 
-import { TextBox } from "@/common";
-import React, { useState } from "react";
-import Image from "next/image";
-import SendActiveCode from "./components/SendActiveCode";
-import RequestActiveCode from "./components/RequestActiveCode";
 // ────────────────────────────────────────────────────────── I ──────────
 //   :::::: C O M P O N E N T : :  :   :    :     :        :          :
 // ────────────────────────────────────────────────────────────────────
 //
 
-export default function Index({ children, open, onClose, width, title,closeModal }) {
+export default function Index() {
   // ─── Global Variable ────────────────────────────────────────────────────────────
 
   // ─── States ─────────────────────────────────────────────────────────────────────
-const [activeModal,setActiveModal] =useState(1)
+
   // ─── Life Cycle ─────────────────────────────────────────────────────────────────
 
   // ─── Functions ──────────────────────────────────────────────────────────────────
@@ -25,17 +21,14 @@ const [activeModal,setActiveModal] =useState(1)
   // ──────────────────────────────────────────────────────────────
   //
   return (
-    <section className="w-full p-8">
-      <span className="mt-[-10px] block text-center text-2xl font-bold text-[#2C8EE8]">
-        دکترکا
-      </span>
-      {
-        activeModal===1&&<RequestActiveCode setActiveModal={setActiveModal}/>
-      }
-       {
-        activeModal===2&& <SendActiveCode closeModal={closeModal} setActiveModal={setActiveModal} num='0938987654'/>
-      }
-     
-    </section>
+    <>
+      <section className="fixed bottom-[62px] left-[98px] z-50 h-[660px] w-[416px] overflow-hidden rounded-[20px] shadow-[0px_4px_10px_0px_#0000001A]  ">
+        <section className="h-[113px] w-full bg-[#1F7FD7]"></section>
+        <section className="h-[475px] w-full bg-[#F8FCFF]">
+          <section className="z-[60] h-full  w-full bg-[url('/images/BACKGROUND_chat.png')] mix-blend-multiply"></section>
+        </section>
+        <section className="h-[72px] w-full bg-white shadow-[0px_-3px_10px_0px_#0000000D]" ></section>
+      </section>
+    </>
   );
 }

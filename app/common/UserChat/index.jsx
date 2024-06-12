@@ -1,20 +1,17 @@
 "use client";
-
-import { TextBox } from "@/common";
-import React, { useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
-import SendActiveCode from "./components/SendActiveCode";
-import RequestActiveCode from "./components/RequestActiveCode";
+import ChatModal from "./ChatModal";
 // ────────────────────────────────────────────────────────── I ──────────
 //   :::::: C O M P O N E N T : :  :   :    :     :        :          :
 // ────────────────────────────────────────────────────────────────────
 //
 
-export default function Index({ children, open, onClose, width, title,closeModal }) {
+export default function Index() {
   // ─── Global Variable ────────────────────────────────────────────────────────────
 
   // ─── States ─────────────────────────────────────────────────────────────────────
-const [activeModal,setActiveModal] =useState(1)
+  const[chatModal,setChatModal] = useState(false);
   // ─── Life Cycle ─────────────────────────────────────────────────────────────────
 
   // ─── Functions ──────────────────────────────────────────────────────────────────
@@ -24,18 +21,19 @@ const [activeModal,setActiveModal] =useState(1)
   //   :::::: R E N D E R : :  :   :    :     :        :          :
   // ──────────────────────────────────────────────────────────────
   //
-  return (
-    <section className="w-full p-8">
-      <span className="mt-[-10px] block text-center text-2xl font-bold text-[#2C8EE8]">
-        دکترکا
-      </span>
+  return <>
+    <button onClick={()=>{setChatModal(!chatModal)}} className=" fixed bottom-[29.58px] left-[13.37px] flex h-[64px] w-[64px] items-center justify-center rounded-full bg-[#2C8EE8] shadow-[0px_4px_20px_0px_#00000033]">
+        <Image
+          src="/images/icons/headphone.svg"
+          width={40}
+          height={40}
+          alt=""
+          className=""
+        />
+      </button>
       {
-        activeModal===1&&<RequestActiveCode setActiveModal={setActiveModal}/>
+       chatModal&&     <ChatModal />
       }
-       {
-        activeModal===2&& <SendActiveCode closeModal={closeModal} setActiveModal={setActiveModal} num='0938987654'/>
-      }
-     
-    </section>
-  );
+
+  </>;
 }
