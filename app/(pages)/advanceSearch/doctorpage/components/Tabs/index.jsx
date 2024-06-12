@@ -15,9 +15,9 @@ export default function Index() {
   // ─── States ─────────────────────────────────────────────────────────────────────
   const [avtiveTab, setActiveTab] = useState(1)
   // ─── Life Cycle ─────────────────────────────────────────────────────────────────
-  useEffect(()=>{
+  useEffect(() => {
     console.log(avtiveTab)
-  },[avtiveTab])
+  }, [avtiveTab])
   // ─── Functions ──────────────────────────────────────────────────────────────────
 
   //
@@ -26,10 +26,9 @@ export default function Index() {
   // ──────────────────────────────────────────────────────────────
   //
   return <>
-  <section className="bg-white h-auto px-6 py-3 border-[1px] w-full rounded-[20px]">
-    
-    <TabButton setActiveTab={setActiveTab} avtiveTab={avtiveTab}/>
-    <TabItems  activeTab={avtiveTab}/>
-
-    </section></>;
+    <section className="bg-white h-auto px-6 py-3 border-[1px] w-full rounded-[20px]">
+      <TabButton setActiveTab={setActiveTab} avtiveTab={avtiveTab} />
+      <TabItems activeTab={avtiveTab} />
+    </section>
+  </>;
 }
