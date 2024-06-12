@@ -25,7 +25,7 @@ const [active, setActive] = useState(false)
   // ──────────────────────────────────────────────────────────────
   //
   return <>
-  <section className={`${active ? "h-[1570px]" :"h-[500px]"} transition-all overflow-hidden duration-500 h-[500px]`}>
+  <section className={`${active ? "h-[1571px]" :"h-[500px]"} transition-all overflow-hidden duration-500 h-[500px]`}>
     <header className="flex gap-3 mt-6">
         <Image src={"/images/icons/note-32.svg"} width={32} height={32} alt="" />
         <span className="text-[20px] font-bold text-[#2C8EE8]">معرفی</span>
