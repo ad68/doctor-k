@@ -15,6 +15,7 @@ import Notify from "./Notify";
 import ComponentLoading from "./ComponentLoading";
 import ErrorMessage from "./Message/ErrorMessage";
 import UserChat from "./UserChat";
+import FilterColaps from "./FilterColaps";
 export {
   Select,
   AsyncSelect,
@@ -33,4 +34,5 @@ export {
   ComponentLoading,
   ErrorMessage,
   UserChat,
+  FilterColaps,
 };

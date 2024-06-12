@@ -2,6 +2,7 @@
 import React from "react";
 import Items from "./components/Items";
 import Image from "next/image";
+import { FilterColaps } from "@/common";
 // ────────────────────────────────────────────────────────── I ──────────
 //   :::::: C O M P O N E N T : :  :   :    :     :        :          :
 // ────────────────────────────────────────────────────────────────────
@@ -21,22 +22,20 @@ export default function Index() {
   //   :::::: R E N D E R : :  :   :    :     :        :          :
   // ──────────────────────────────────────────────────────────────
   //
-  return <>
-    <section className="mt-4 grid gap-4 border-b-[1px] pb-4">
-    <header className="flex justify-between">
-        <span className="text-[14px] font-bold">نوع مشاوره </span>
-        <button>
-
-        <Image src="/images/icons/arrow-down_24.svg" width={24} height={24} alt=""/>
-        </button>
-    </header>
-    <section className="grid gap-4">
+  return (
+    <>
+      <FilterColaps
+        title="نوع مشاوره"
+        height="h-[204px]"
+        border="border-b border-solid border-[#EFEFEF]"
+      >
+        <section className="mt-4 grid gap-4">
         <Items title="تلفنی" />
-        <Items title="متنی "/>
-        <Items title={"آنلاین ویدیوئی"}/>
-        <Items title={"آنلاین صوتی"}/>
-        
-    </section>
-  </section>
-  </>;
+          <Items title="متنی " />
+          <Items title={"آنلاین ویدیوئی"} />
+          <Items title={"آنلاین صوتی"} />
+        </section>
+      </FilterColaps>
+    </>
+  );
 }

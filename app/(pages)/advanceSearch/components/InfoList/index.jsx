@@ -23,7 +23,7 @@ export default function Index() {
   //
   return (
     <>
-      <section className="my-8 grid h-[1558px] w-[872px] gap-6 bg-white">
+      <section className="my-8 grid h-[1558px] w-[872px] gap-6 ">
         <header className="flex justify-between items-center">
           <section className="flex text-[14px] font-bold">
             <span className="text-[#505050]">12 نتیجه برای جستجوی</span>

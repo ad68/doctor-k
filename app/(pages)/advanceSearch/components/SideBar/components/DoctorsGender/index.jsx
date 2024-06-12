@@ -1,7 +1,8 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import Items from "./components/Items";
+import { FilterColaps } from "@/common";
 // ────────────────────────────────────────────────────────── I ──────────
 //   :::::: C O M P O N E N T : :  :   :    :     :        :          :
 // ────────────────────────────────────────────────────────────────────
@@ -11,7 +12,7 @@ export default function Index() {
   // ─── Global Variable ────────────────────────────────────────────────────────────
 
   // ─── States ─────────────────────────────────────────────────────────────────────
-
+  const [radioValue,setRadioValue]=useState(1)
   // ─── Life Cycle ─────────────────────────────────────────────────────────────────
 
   // ─── Functions ──────────────────────────────────────────────────────────────────
@@ -21,22 +22,19 @@ export default function Index() {
   //   :::::: R E N D E R : :  :   :    :     :        :          :
   // ──────────────────────────────────────────────────────────────
   //
-  return <>
-  <section className="mt-4 grid gap-4 border-b-[1px] pb-4">
-    <header className="flex justify-between">
-        <span className="text-[14px] font-bold">دسته بندی</span>
-        <button>
-
-        <Image src="/images/icons/arrow-down_24.svg" width={24} height={24} alt=""/>
-        </button>
-    </header>
-
-    <section className="grid gap-4">
-        <Items title={"خانم"} />
-        <Items title="خانم"/>
-        <Items title="هردو"/>
-
-    </section>
-  </section>
-  </>;
+  return (
+    <>
+      <FilterColaps
+        title="جنسیت پزشک"
+        height="h-[176px]"
+        border="border-b border-solid border-[#EFEFEF]"
+      >
+        <section className="mt-4 grid gap-4">
+          <Items radioValue={radioValue} setRadioValue={setRadioValue} title="خانم" index={1} />
+          <Items radioValue={radioValue} setRadioValue={setRadioValue} title="آقا" index={2}/>
+          <Items radioValue={radioValue} setRadioValue={setRadioValue} title="هردو" index={3}/>
+        </section>
+      </FilterColaps>
+    </>
+  );
 }
