@@ -6,7 +6,7 @@ import TabItems from './components/TabItems';
 // ────────────────────────────────────────────────────────────────────
 //
 
-export default function Index() {
+export default function Index({setActiveFilter,activeFilter}) {
   // ─── Global Variable ────────────────────────────────────────────────────────────
 
   // ─── States ─────────────────────────────────────────────────────────────────────
@@ -22,11 +22,10 @@ export default function Index() {
   //
   return <>
   <section className="flex gap-4 justify-center">
-    <TabItems title={'همه'}/>
-    <TabItems title={'مشاوره آنلاین'} />
-    <TabItems title={'تیم پزشکی'} />
-    <TabItems title={'امتیاز دهی'} />
-    <TabItems title={'پشتیبانی'} />
+
+    <TabItems activeFilter={activeFilter} setActiveFilter={setActiveFilter} filterName='Physician' title='تیم پزشکی' />
+    <TabItems activeFilter={activeFilter} setActiveFilter={setActiveFilter} filterName='Patient' title='بیمار' />
+    <TabItems activeFilter={activeFilter} setActiveFilter={setActiveFilter} filterName='Support' title='پشتیبانی' />
   </section>
   </>;
 }
