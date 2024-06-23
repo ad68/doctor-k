@@ -6,7 +6,7 @@ import React, { useEffect, useRef, useState } from "react";
 // ────────────────────────────────────────────────────────────────────
 //
 
-export default function Index() {
+export default function Index({ setActiveCode }) {
   // ─── Global Variable ────────────────────────────────────────────────────────────
   const firstRef = useRef();
   const secondRef = useRef();
@@ -23,13 +23,8 @@ export default function Index() {
   // ─── Life Cycle ─────────────────────────────────────────────────────────────────
 
   // ─── Functions ──────────────────────────────────────────────────────────────────
+
   useEffect(() => {
-    if (firstOtp) {
-      secondRef.current.focus();
-    }
-  }, [firstOtp]);
-  useEffect(() => {
-    
     if (secondtOtp) {
       thirdRef.current.focus();
     } else {
@@ -55,7 +50,19 @@ export default function Index() {
       fourthRef.current.focus();
     }
   }, [fifthOtp]);
-
+  useEffect(() => {
+    if (!firstOtp) {
+      firstRef.current.focus();
+    } else {
+      secondRef.current.focus();
+    }
+  }, [firstOtp]);
+  useEffect(() => {
+    if (firstOtp && fifthOtp && thirdOtp && fourthOtp && secondtOtp) {
+      setActiveCode(firstOtp.concat(secondtOtp, thirdOtp, fourthOtp, fifthOtp));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [firstOtp, fifthOtp, thirdOtp, fourthOtp, secondtOtp]);
   //
   // ──────────────────────────────────────────────────── I ──────────
   //   :::::: R E N D E R : :  :   :    :     :        :          :

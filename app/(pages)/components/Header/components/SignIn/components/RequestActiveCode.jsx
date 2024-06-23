@@ -1,31 +1,44 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import { TextBox } from "@/common";
+import { ErrorMessage, TextBox } from "@/common";
 import { useAxios } from "@/hooks";
 import { api } from "@/api";
+import { Regex } from "@/enums";
 // ────────────────────────────────────────────────────────── I ──────────
 //   :::::: C O M P O N E N T : :  :   :    :     :        :          :
 // ────────────────────────────────────────────────────────────────────
 //
 
-export default function Index({ setActiveModal,phoneNumber,setPhoneNumber }) {
+export default function Index({ setActiveModal, phoneNumber, setPhoneNumber }) {
   // ─── Global Variable ────────────────────────────────────────────────────────────
 
   // ─── States ─────────────────────────────────────────────────────────────────────
-
+  const [error, setError] = useState(true);
+  const [firstSubmit, setFirstSubmit] = useState(false);
   // ─── Life Cycle ─────────────────────────────────────────────────────────────────
 
   // ─── Functions ──────────────────────────────────────────────────────────────────
   const RequestActiveCode = () => {
-    useAxios
-      .get(api.authentication.sendOtp + `?phoneNumber=${phoneNumber}`)
-      .then((res) => {
-        setActiveModal(2);
-      })
-      .catch((err) => {});
+    setFirstSubmit(true);
+    if (!error) {
+      useAxios
+        .get(api.authentication.sendOtp + `?phoneNumber=${phoneNumber}`)
+        .then((res) => {
+          setActiveModal(2);
+        })
+        .catch((err) => {});
+    }
   };
-
+  useEffect(() => {
+    if (firstSubmit) {
+      if (Regex.MOBILE.test(phoneNumber)) {
+        setError(false);
+      } else {
+        setError(true);
+      }
+    }
+  }, [phoneNumber]);
 
   //
   // ──────────────────────────────────────────────────── I ──────────
@@ -53,24 +66,27 @@ export default function Index({ setActiveModal,phoneNumber,setPhoneNumber }) {
             setPhoneNumber(e.target.value);
           }}
           placeholder="9xx xxx xxxx"
-          className="ltr mt-1 h-[48px]  w-full rounded-[10px] border border-solid border-[#D1D1D1] py-[10px] pl-[90px] "
+          className="ltr relative mt-1 h-[48px] w-full rounded-[10px] border border-solid border-[#D1D1D1] py-[10px] pl-[90px] "
         />
-        <input />
+
         <Image
           alt=""
           src="/images/icons/flag-iran.svg"
           width={24}
           height={24}
-          className="absolute left-[8px] top-[50%] translate-y-[-50%]"
+          className="absolute left-[10px] top-[50%] "
         />
-        <span className="absolute left-[40px] top-[50%] translate-y-[-50%] text-[#707070] ">
+        <span className="absolute left-[42px] top-[50%]  text-[#707070] ">
           98+
         </span>
-        <span className="absolute left-[78px] top-[50%] h-[28px] w-[2px] translate-y-[-50%] bg-[#909090]"></span>
+        <span className="absolute left-[78px] top-[50%] h-[28px] w-[2px]  bg-[#909090]"></span>
       </section>
+      {error && firstSubmit && (
+        <ErrorMessage>لطفا شماره تماس را بدرستی وارد کنید</ErrorMessage>
+      )}
       <button
         onClick={() => {
-          RequestActiveCode()
+          RequestActiveCode();
         }}
         className="mt-[48px] flex h-[48px] w-full items-center justify-center gap-[10.16px] rounded-[10px] bg-[#2C8EE8] font-medium text-white"
       >
