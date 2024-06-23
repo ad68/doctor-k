@@ -1,12 +1,15 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import { TextBox } from "@/common";
+import { useAxios } from "@/hooks";
+import { api } from "@/api";
 // ────────────────────────────────────────────────────────── I ──────────
 //   :::::: C O M P O N E N T : :  :   :    :     :        :          :
 // ────────────────────────────────────────────────────────────────────
 //
 
-export default function Index({setActiveModal}) {
+export default function Index({ setActiveModal,phoneNumber,setPhoneNumber }) {
   // ─── Global Variable ────────────────────────────────────────────────────────────
 
   // ─── States ─────────────────────────────────────────────────────────────────────
@@ -14,34 +17,77 @@ export default function Index({setActiveModal}) {
   // ─── Life Cycle ─────────────────────────────────────────────────────────────────
 
   // ─── Functions ──────────────────────────────────────────────────────────────────
+  const RequestActiveCode = () => {
+    useAxios
+      .get(api.authentication.sendOtp + `?phoneNumber=${phoneNumber}`)
+      .then((res) => {
+        setActiveModal(2);
+      })
+      .catch((err) => {});
+  };
+
 
   //
   // ──────────────────────────────────────────────────── I ──────────
   //   :::::: R E N D E R : :  :   :    :     :        :          :
   // ──────────────────────────────────────────────────────────────
   //
-  return <>
-    <span className="flex items-center gap-2  font-bold text-[#505050]">
+  return (
+    <>
+      <span className="flex items-center gap-2  font-bold text-[#505050]">
         <span className="cursor-pointer">ثبت نام</span>
         <span className="h-3 w-[2px] bg-[#505050]"></span>
         <span className="cursor-pointer">ورود </span>
       </span>
-      <p className="leading-[24.18px] text-sm mt-4">لطفا شماره موبایل خود را وارد نمایید</p>
-      <label className=" text-[#707070] block mt-6 text-sm">شماره موبایل </label>
+      <p className="mt-4 text-sm leading-[24.18px]">
+        لطفا شماره موبایل خود را وارد نمایید
+      </p>
+
       <section className=" relative w-full">
-       
-  
-      <input type="text" className="w-full py-[10px]  mt-1 pl-[90px] h-[48px] border border-solid border-[#D1D1D1] rounded-[10px] " dir="ltr" placeholder="9xx xxx xxxx" />
-      <Image alt='' src='/images/icons/flag-iran.svg' width={24} height={24} className="absolute top-[50%] translate-y-[-50%] left-[8px]" />
-      <span className="absolute top-[50%] translate-y-[-50%] left-[40px] text-[#707070] ">98+</span>
-      <span className="h-[28px] w-[2px] top-[50%] translate-y-[-50%] left-[78px] bg-[#909090] absolute"></span>
+        <label className=" mt-6 block text-sm text-[#707070]">
+          شماره موبایل{" "}
+        </label>
+        <TextBox
+          value={phoneNumber}
+          onChange={(e) => {
+            setPhoneNumber(e.target.value);
+          }}
+          placeholder="9xx xxx xxxx"
+          className="ltr mt-1 h-[48px]  w-full rounded-[10px] border border-solid border-[#D1D1D1] py-[10px] pl-[90px] "
+        />
+        <input />
+        <Image
+          alt=""
+          src="/images/icons/flag-iran.svg"
+          width={24}
+          height={24}
+          className="absolute left-[8px] top-[50%] translate-y-[-50%]"
+        />
+        <span className="absolute left-[40px] top-[50%] translate-y-[-50%] text-[#707070] ">
+          98+
+        </span>
+        <span className="absolute left-[78px] top-[50%] h-[28px] w-[2px] translate-y-[-50%] bg-[#909090]"></span>
       </section>
-     <button onClick={()=>{
-        setActiveModal(2)
-     }} className="w-full h-[48px] gap-[10.16px] font-medium flex items-center justify-center text-white bg-[#2C8EE8] rounded-[10px] mt-[48px]">
-     دریافت کد تایید
-     <Image alt='' src='/images/icons/VectorBtnLeft.svg' width={14.25} height={20.34} className="" />
-     </button>
-     <p className="text-xs text-center mt-4">ورود شما به معنای پذیرش  <span className="text-[#2C8EE8] cursor-pointer"> قوانین و مقررات</span> دکترکا می‌باشد .</p>
-  </>;
+      <button
+        onClick={() => {
+          RequestActiveCode()
+        }}
+        className="mt-[48px] flex h-[48px] w-full items-center justify-center gap-[10.16px] rounded-[10px] bg-[#2C8EE8] font-medium text-white"
+      >
+        دریافت کد تایید
+        <Image
+          alt=""
+          src="/images/icons/VectorBtnLeft.svg"
+          width={14.25}
+          height={20.34}
+          className=""
+        />
+      </button>
+      <p className="mt-4 text-center text-xs">
+        ورود شما به معنای پذیرش{" "}
+        <span className="cursor-pointer text-[#2C8EE8]"> قوانین و مقررات</span>{" "}
+        دکترکا می‌باشد .
+      </p>
+    </>
+  );
 }

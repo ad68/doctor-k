@@ -7,4 +7,7 @@ export const api = {
   Miscellaneous: {
     getMiscellaneous: baseUrl + "miscellaneous/faq",
   },
+  authentication: {
+    sendOtp: baseUrl + 'auth/sendOtp',
+  }
 };

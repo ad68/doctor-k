@@ -14,9 +14,9 @@ export default function Index({ children, open, onClose, width, title,closeModal
   // ─── Global Variable ────────────────────────────────────────────────────────────
 
   // ─── States ─────────────────────────────────────────────────────────────────────
-const [activeModal,setActiveModal] =useState(1)
+  const [status,setStatus]=useState(1)
   // ─── Life Cycle ─────────────────────────────────────────────────────────────────
-
+  const [phoneNumber, setPhoneNumber] = useState("");
   // ─── Functions ──────────────────────────────────────────────────────────────────
 
   //
@@ -30,10 +30,10 @@ const [activeModal,setActiveModal] =useState(1)
         دکترکا
       </span>
       {
-        activeModal===1&&<RequestActiveCode setActiveModal={setActiveModal}/>
+        status===1&&<RequestActiveCode setPhoneNumber={setPhoneNumber} phoneNumber={phoneNumber} setActiveModal={setStatus}/>
       }
        {
-        activeModal===2&& <SendActiveCode closeModal={closeModal} setActiveModal={setActiveModal} num='0938987654'/>
+        status===2&& <SendActiveCode phoneNumber={phoneNumber} closeModal={closeModal} setActiveModal={setStatus} num='0938987654'/>
       }
      
     </section>
