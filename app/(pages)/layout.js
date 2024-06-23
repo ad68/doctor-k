@@ -1,7 +1,7 @@
 import "./globals.css";
 import { Figtree } from "next/font/google";
 import localFont from "next/font/local";
-import { Header } from "./components/Header";
+import  Header  from "./components/Header";
 import Footer from "./components/Footer";
 import TopLoader from "../common/TopLoader";
 import { Toaster } from "react-hot-toast";

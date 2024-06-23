@@ -1,16 +1,16 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 
 // ────────────────────────────────────────────────────────── I ──────────
 //   :::::: C O M P O N E N T : :  :   :    :     :        :          :
 // ────────────────────────────────────────────────────────────────────
 //
 
-export default function Index({ title }) {
+export default function Index() {
   // ─── Global Variable ────────────────────────────────────────────────────────────
 
   // ─── States ─────────────────────────────────────────────────────────────────────
-const [activeBtn,setActiveBtn]=useState(false);
+
   // ─── Life Cycle ─────────────────────────────────────────────────────────────────
 
   // ─── Functions ──────────────────────────────────────────────────────────────────
@@ -22,18 +22,12 @@ const [activeBtn,setActiveBtn]=useState(false);
   //
   return (
     <>
-      <section className="flex justify-between">
-        <span className="text-[12px] font-normal text-[#707070]">{title}</span>
-        <span onClick={()=>{
-            setActiveBtn(!activeBtn)
-          }} className={`h-[22px] relative w-[44px] rounded-full ${activeBtn?'bg-[#0075ff]':"bg-[#909090]"} `}>
-          <span  className={`h-[18px] w-[18px] transition-all  bg-white absolute ${activeBtn?'left-[23px]':"left-[2px]"}  top-[50%] translate-y-[-50%] rounded-full`}></span>
-        </span>
-        {/* 
-        <label class="switch">
-          <input type="checkbox" />
-          <span class="slider round"></span>
-        </label> */}
+      <section className="fixed bottom-[62px] left-[98px] z-50 h-[660px] w-[416px] overflow-hidden rounded-[20px] shadow-[0px_4px_10px_0px_#0000001A]  ">
+        <section className="h-[113px] w-full bg-[#1F7FD7]"></section>
+        <section className="h-[475px] w-full bg-[#F8FCFF]">
+          <section className="z-[60] h-full  w-full bg-[url('/images/BACKGROUND_chat.png')] mix-blend-multiply"></section>
+        </section>
+        <section className="h-[72px] w-full bg-white shadow-[0px_-3px_10px_0px_#0000000D]" ></section>
       </section>
     </>
   );

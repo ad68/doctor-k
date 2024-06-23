@@ -4,4 +4,7 @@ export const api = {
     getTopExpertisesPhysicians: baseUrl + "expertise/TopExpertisesPhysicians",
     getExpertiseList: baseUrl + "expertise",
   },
+  Miscellaneous: {
+    getMiscellaneous: baseUrl + "miscellaneous/faq",
+  },
 };

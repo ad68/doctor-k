@@ -1,4 +1,5 @@
 "use client";
+import { useState } from "react";
 import Section1 from "./components/Section1";
 import Section2 from "./components/Section2";
 import Section3 from "./components/Section3";
@@ -9,6 +10,9 @@ import Section7 from "./components/Section7";
 import Section8 from "./components/Section8";
 import Section9 from "./components/Section9";
 import Section10 from "./components/Section10";
+import { UserChat } from "@/common";
+
+
 
 //
 // ────────────────────────────────────────────────────────── I ──────────
@@ -21,8 +25,8 @@ export default function page() {
 
   // ─── States ─────────────────────────────────────────────────────────────────────
 
+
   // ─── Life Cycle ─────────────────────────────────────────────────────────────────
-  
 
   // ─── Functions ──────────────────────────────────────────────────────────────────
   //
@@ -33,6 +37,8 @@ export default function page() {
   //
   return (
     <>
+    
+<UserChat />
       <Section1 />
       <Section2 />
       <Section3 />

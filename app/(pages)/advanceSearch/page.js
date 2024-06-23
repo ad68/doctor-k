@@ -24,17 +24,19 @@ export default function Index() {
   //   :::::: R E N D E R : :  :   :    :     :        :          :
   // ──────────────────────────────────────────────────────────────
   //
-  return <>
-  <section className="">
-    <header className="w-full bg-[#2C8EE8] h-[72px] mt-[72px]  ">
-        <SearchBox />
-    </header>
-    <section className="flex justify-between gap-6 w-[1170px] mx-auto">
-        
-    <SideBar />
-    <InfoList />
-    </section>
-    <Commenst />
-    <Question />
-    </section></>;
+  return (
+    <>
+      <section className="">
+        <header className="mt-[72px] h-[72px] w-full bg-[#2C8EE8]  ">
+          <SearchBox />
+        </header>
+        <section className="mx-auto h-auto items-start flex w-[1170px] justify-between gap-6">
+          <SideBar />
+          <InfoList />
+        </section>
+        <Commenst />
+        <Question />
+      </section>
+    </>
+  );
 }

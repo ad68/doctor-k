@@ -1,16 +1,20 @@
 "use client";
-import React, { useState } from "react";
 
+import { TextBox } from "@/common";
+import React, { useState } from "react";
+import Image from "next/image";
+import SendActiveCode from "./components/SendActiveCode";
+import RequestActiveCode from "./components/RequestActiveCode";
 // ────────────────────────────────────────────────────────── I ──────────
 //   :::::: C O M P O N E N T : :  :   :    :     :        :          :
 // ────────────────────────────────────────────────────────────────────
 //
 
-export default function Index({ title }) {
+export default function Index({ children, open, onClose, width, title,closeModal }) {
   // ─── Global Variable ────────────────────────────────────────────────────────────
 
   // ─── States ─────────────────────────────────────────────────────────────────────
-const [activeBtn,setActiveBtn]=useState(false);
+const [activeModal,setActiveModal] =useState(1)
   // ─── Life Cycle ─────────────────────────────────────────────────────────────────
 
   // ─── Functions ──────────────────────────────────────────────────────────────────
@@ -21,20 +25,17 @@ const [activeBtn,setActiveBtn]=useState(false);
   // ──────────────────────────────────────────────────────────────
   //
   return (
-    <>
-      <section className="flex justify-between">
-        <span className="text-[12px] font-normal text-[#707070]">{title}</span>
-        <span onClick={()=>{
-            setActiveBtn(!activeBtn)
-          }} className={`h-[22px] relative w-[44px] rounded-full ${activeBtn?'bg-[#0075ff]':"bg-[#909090]"} `}>
-          <span  className={`h-[18px] w-[18px] transition-all  bg-white absolute ${activeBtn?'left-[23px]':"left-[2px]"}  top-[50%] translate-y-[-50%] rounded-full`}></span>
-        </span>
-        {/* 
-        <label class="switch">
-          <input type="checkbox" />
-          <span class="slider round"></span>
-        </label> */}
-      </section>
-    </>
+    <section className="w-full p-8">
+      <span className="mt-[-10px] block text-center text-2xl font-bold text-[#2C8EE8]">
+        دکترکا
+      </span>
+      {
+        activeModal===1&&<RequestActiveCode setActiveModal={setActiveModal}/>
+      }
+       {
+        activeModal===2&& <SendActiveCode closeModal={closeModal} setActiveModal={setActiveModal} num='0938987654'/>
+      }
+     
+    </section>
   );
 }

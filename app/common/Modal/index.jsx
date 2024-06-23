@@ -8,21 +8,21 @@ import Close from "./icons/close";
 // ────────────────────────────────────────────────────────────────────
 //
 
-export default function Index({ children, open, onClose, width, title }) {
+export default function Index({ children, open, onClose, width }) {
   // ─── Global Variable ────────────────────────────────────────────────────────────
   const modalBox = useRef();
-  const overlay = useRef();
+  const modalWrapper = useRef();
   // ─── States ─────────────────────────────────────────────────────────────────────
 
   // ─── Life Cycle ─────────────────────────────────────────────────────────────────
   useEffect(() => {
     if (open) {
-      overlay.current.style.display = "block";
+      modalWrapper.current.style.display = "block";
       showDialog();
     } else {
       hideDialog();
       setTimeout(() => {
-        overlay.current.style.display = "none";
+        modalWrapper.current.style.display = "none";
       }, 200);
     }
     // eslint-disable-next-line
@@ -47,24 +47,28 @@ export default function Index({ children, open, onClose, width, title }) {
   // ──────────────────────────────────────────────────────────────
   //
   return (
-    <section ref={overlay} className="modalOverLay">
-      <section className="modalWrapper">
+    <section ref={modalWrapper} className="fixed  h-full w-full top-0 left-0 flex items-center justify-center z-[500]">
+      <section onClick={onClose} className="modalOverLay">
+      </section>
+     <section className="modalWrapper ">
         <section
           ref={modalBox}
-          className="modalBox"
+          className="modalBox  mx-auto z-[1000] bg-white"
           style={{ width: width ? width : 500 }}
         >
           <section
             onClick={onClose}
-            className="absolute left-3 top-3 z-10 h-[5] w-[50] cursor-pointer rounded-full p-1 transition-all hover:bg-slate-200"
+            className="absolute left-[9px] xl:left-4 top-[6px] xl:top-3 z-10 h-[1px] w-[11px] xl:w-[18px] cursor-pointer rounded-full  transition-all hover:bg-slate-200"
           >
-            <Close fill="gray" color="gray" />
+            <Close  fill="#434343" color="#434343" width='15' height='15' viewBox="0 0 24 24" className='xl:hidden'/>
+            <Close  fill="#434343" color="#434343" width='20' height='20' viewBox="0 0 24 24" className='xl:block hidden'/>
           </section>
-
-          <span className="title ">{title}</span>
           {open ? <section>{children}</section> : ""}
         </section>
       </section>
-    </section>
+      </section>
+  
+    
   );
 }
+

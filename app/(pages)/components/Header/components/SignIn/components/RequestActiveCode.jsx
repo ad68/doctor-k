@@ -1,16 +1,16 @@
 "use client";
-import React, { useState } from "react";
-
+import React from "react";
+import Image from "next/image";
 // ────────────────────────────────────────────────────────── I ──────────
 //   :::::: C O M P O N E N T : :  :   :    :     :        :          :
 // ────────────────────────────────────────────────────────────────────
 //
 
-export default function Index({ title }) {
+export default function Index({setActiveModal}) {
   // ─── Global Variable ────────────────────────────────────────────────────────────
 
   // ─── States ─────────────────────────────────────────────────────────────────────
-const [activeBtn,setActiveBtn]=useState(false);
+
   // ─── Life Cycle ─────────────────────────────────────────────────────────────────
 
   // ─── Functions ──────────────────────────────────────────────────────────────────
@@ -20,21 +20,28 @@ const [activeBtn,setActiveBtn]=useState(false);
   //   :::::: R E N D E R : :  :   :    :     :        :          :
   // ──────────────────────────────────────────────────────────────
   //
-  return (
-    <>
-      <section className="flex justify-between">
-        <span className="text-[12px] font-normal text-[#707070]">{title}</span>
-        <span onClick={()=>{
-            setActiveBtn(!activeBtn)
-          }} className={`h-[22px] relative w-[44px] rounded-full ${activeBtn?'bg-[#0075ff]':"bg-[#909090]"} `}>
-          <span  className={`h-[18px] w-[18px] transition-all  bg-white absolute ${activeBtn?'left-[23px]':"left-[2px]"}  top-[50%] translate-y-[-50%] rounded-full`}></span>
-        </span>
-        {/* 
-        <label class="switch">
-          <input type="checkbox" />
-          <span class="slider round"></span>
-        </label> */}
+  return <>
+    <span className="flex items-center gap-2  font-bold text-[#505050]">
+        <span className="cursor-pointer">ثبت نام</span>
+        <span className="h-3 w-[2px] bg-[#505050]"></span>
+        <span className="cursor-pointer">ورود </span>
+      </span>
+      <p className="leading-[24.18px] text-sm mt-4">لطفا شماره موبایل خود را وارد نمایید</p>
+      <label className=" text-[#707070] block mt-6 text-sm">شماره موبایل </label>
+      <section className=" relative w-full">
+       
+  
+      <input type="text" className="w-full py-[10px]  mt-1 pl-[90px] h-[48px] border border-solid border-[#D1D1D1] rounded-[10px] " dir="ltr" placeholder="9xx xxx xxxx" />
+      <Image alt='' src='/images/icons/flag-iran.svg' width={24} height={24} className="absolute top-[50%] translate-y-[-50%] left-[8px]" />
+      <span className="absolute top-[50%] translate-y-[-50%] left-[40px] text-[#707070] ">98+</span>
+      <span className="h-[28px] w-[2px] top-[50%] translate-y-[-50%] left-[78px] bg-[#909090] absolute"></span>
       </section>
-    </>
-  );
+     <button onClick={()=>{
+        setActiveModal(2)
+     }} className="w-full h-[48px] gap-[10.16px] font-medium flex items-center justify-center text-white bg-[#2C8EE8] rounded-[10px] mt-[48px]">
+     دریافت کد تایید
+     <Image alt='' src='/images/icons/VectorBtnLeft.svg' width={14.25} height={20.34} className="" />
+     </button>
+     <p className="text-xs text-center mt-4">ورود شما به معنای پذیرش  <span className="text-[#2C8EE8] cursor-pointer"> قوانین و مقررات</span> دکترکا می‌باشد .</p>
+  </>;
 }

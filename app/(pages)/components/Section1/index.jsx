@@ -3,6 +3,7 @@ import React from "react";
 import SearchBox from "./components/SeachBox";
 import AdvanceSearch from "./components/AdvanceSearch";
 import Counseling from "./components/Counseling";
+
 // ────────────────────────────────────────────────────────── I ──────────
 //   :::::: C O M P O N E N T : :  :   :    :     :        :          :
 // ────────────────────────────────────────────────────────────────────
@@ -24,6 +25,7 @@ export default function Index() {
   //
   return (
     <>
+   
       <section className="grid h-[686px] w-full justify-items-center bg-[url('/images/Group.png')] bg-[length:100%_686px] bg-no-repeat text-white">
         <section className="w-[532px] pt-[181px] ">
           <h1 className="pb-[16px] text-center text-[40px] font-black leading-[69.09px]">
@@ -35,7 +37,7 @@ export default function Index() {
           </h2>
           <SearchBox />
           <AdvanceSearch />
-        </section>
+        </section>                                        
       </section>
       <section className="mt-[-60px] flex justify-center p-px">
         <Counseling />

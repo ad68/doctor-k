@@ -6,7 +6,7 @@ import React from "react";
 // ────────────────────────────────────────────────────────────────────
 //
 
-export default function Index({title}) {
+export default function Index({title,setActiveFilter,filterName,activeFilter}) {
   // ─── Global Variable ────────────────────────────────────────────────────────────
 
   // ─── States ─────────────────────────────────────────────────────────────────────
@@ -21,7 +21,9 @@ export default function Index({title}) {
   // ──────────────────────────────────────────────────────────────
   //
   return <>
-  <button className="text-[#707070] active:text-white active:bg-[#2C8EE8]  py-[6px] px-4 border-[1px] border-[#D1D1D1] rounded-[10px] hover:border-[#2C8EE8] active:border-[#2C8EE8] hover:text-[#2C8EE8]">
+  <button onClick={()=>{
+    setActiveFilter(filterName)
+  }} className={`${filterName === activeFilter?'text-white bg-[#2C8EE8] border-[#2C8EE8]':'text-[#707070] bg-white border-[#D1D1D1]'} transition-all  py-[6px] px-4 border-[1px]  rounded-[10px]  `}>
     <span className="text-[14px] font-bold  ">{title}</span>
   </button>
   </>;

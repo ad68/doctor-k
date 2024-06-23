@@ -1,18 +1,27 @@
 "use client";
-import React, { useState } from "react";
-
+import React, { useEffect, useState } from "react";
+import Image from "next/image";
 // ────────────────────────────────────────────────────────── I ──────────
 //   :::::: C O M P O N E N T : :  :   :    :     :        :          :
 // ────────────────────────────────────────────────────────────────────
 //
 
-export default function Index({ title }) {
+export default function Index({ children, height, title, border }) {
   // ─── Global Variable ────────────────────────────────────────────────────────────
 
   // ─── States ─────────────────────────────────────────────────────────────────────
-const [activeBtn,setActiveBtn]=useState(false);
+  const [collapse, setCollapse] = useState(false);
+  const [showContent, setShowContent] = useState(false);
   // ─── Life Cycle ─────────────────────────────────────────────────────────────────
-
+  useEffect(() => {
+    if (collapse) {
+      setTimeout(() => {
+        setShowContent(true);
+      }, 500);
+    } else {
+      setShowContent(false);
+    }
+  }, [collapse]);
   // ─── Functions ──────────────────────────────────────────────────────────────────
 
   //
@@ -22,18 +31,28 @@ const [activeBtn,setActiveBtn]=useState(false);
   //
   return (
     <>
-      <section className="flex justify-between">
-        <span className="text-[12px] font-normal text-[#707070]">{title}</span>
-        <span onClick={()=>{
-            setActiveBtn(!activeBtn)
-          }} className={`h-[22px] relative w-[44px] rounded-full ${activeBtn?'bg-[#0075ff]':"bg-[#909090]"} `}>
-          <span  className={`h-[18px] w-[18px] transition-all  bg-white absolute ${activeBtn?'left-[23px]':"left-[2px]"}  top-[50%] translate-y-[-50%] rounded-full`}></span>
-        </span>
-        {/* 
-        <label class="switch">
-          <input type="checkbox" />
-          <span class="slider round"></span>
-        </label> */}
+      <section
+        className={`w-full ${border}  py-4 transition-all duration-700 ${collapse ? height : "h-[56px]"}`}
+      >
+        <section className="flex justify-between">
+          <span className="text-[14px] font-bold">{title}</span>
+          <Image
+            onClick={() => {
+              setCollapse(!collapse);
+            }}
+            src="/images/icons/arrow-down_24.svg"
+            width={24}
+            height={24}
+            alt=""
+            className="transition-all"
+            style={{ transform: collapse ? "rotate(0)" : "rotate(180deg)" }}
+          />
+        </section>
+        {showContent && (
+          <>
+            {children}
+          </>
+        )}
       </section>
     </>
   );

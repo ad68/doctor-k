@@ -14,6 +14,8 @@ import DeleteModal from "./DeleteModal";
 import Notify from "./Notify";
 import ComponentLoading from "./ComponentLoading";
 import ErrorMessage from "./Message/ErrorMessage";
+import UserChat from "./UserChat";
+import FilterColaps from "./FilterColaps";
 export {
   Select,
   AsyncSelect,
@@ -31,4 +33,6 @@ export {
   Notify,
   ComponentLoading,
   ErrorMessage,
+  UserChat,
+  FilterColaps,
 };
