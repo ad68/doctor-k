@@ -21,8 +21,15 @@ export default function Index() {
 
   // ─── Life Cycle ─────────────────────────────────────────────────────────────────
   useEffect(() => {
+<<<<<<< HEAD
     if(data?.length>0){ setFilter(data[0])}
    
+=======
+    if (data?.length > 0) {
+      setFilter(data[0])
+    }
+
+>>>>>>> mina_y
   }, [data]);
   useEffect(() => {
     if (filter?.physicians?.length > 0) {
