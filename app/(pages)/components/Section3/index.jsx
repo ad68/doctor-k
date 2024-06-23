@@ -21,7 +21,9 @@ export default function Index() {
 
   // ─── Life Cycle ─────────────────────────────────────────────────────────────────
   useEffect(() => {
-    if (data?.length > 0) { setFilter(data[0]) }
+    if (data?.length > 0) {
+      setFilter(data[0])
+    }
 
   }, [data]);
   useEffect(() => {
