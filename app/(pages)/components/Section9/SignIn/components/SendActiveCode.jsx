@@ -4,36 +4,59 @@ import Image from "next/image";
 import OtpInputs from "./OtpInputs";
 import { useAxios } from "@/hooks";
 import { api } from "@/api";
+import axios from "axios";
 // ────────────────────────────────────────────────────────── I ──────────
 //   :::::: C O M P O N E N T : :  :   :    :     :        :          :
 // ────────────────────────────────────────────────────────────────────
 //
 
-export default function Index({ closeModal, phoneNumber, setActiveModal }) {
+export default function Index({
+  closeModal,
+  phoneNumber,
+  setActiveModal,
+  setCurrentUserInfo,
+  setStatus,
+}) {
   // ─── Global Variable ────────────────────────────────────────────────────────────
 
   // ─── States ─────────────────────────────────────────────────────────────────────
   const [activeCode, setActiveCode] = useState();
-  const [response, setResponse] = useState();
+
   // ─── Life Cycle ─────────────────────────────────────────────────────────────────
+
   useEffect(() => {
     console.log(activeCode);
   }, [activeCode]);
   // ─── Functions ──────────────────────────────────────────────────────────────────
+  const getUserInfo = (token) => {
+    axios
+      .get(api.authentication.returnProfile + `?JwtToken=${token}`)
+      .then((res) => {
+        setCurrentUserInfo(res.data);
+        if (!res.data.profileNecessaryInfoInserted) {
+          setActiveModal(3);
+        } else {
+          closeModal();
+        }
+      })
+      .catch((err) => {});
+  };
   const SendActiveCode = () => {
     let params = {
       mobileNumber: phoneNumber,
       otp: activeCode,
-      role: "Patient",
+      role: "Physician",
     };
     useAxios
       .post(api.authentication.login, params)
       .then((res) => {
-        setResponse(res.data);
-        closeModal();
+        // localStorage.token = res.data.token;
+        console.log(res.data.token);
+        getUserInfo(res.data.token);
       })
       .catch((err) => {});
   };
+
   //
   // ──────────────────────────────────────────────────── I ──────────
   //   :::::: R E N D E R : :  :   :    :     :        :          :

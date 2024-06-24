@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import SendActiveCode from "./components/SendActiveCode";
 import RequestActiveCode from "./components/RequestActiveCode";
+import DoctorUserForm from "./components/DoctorUserForm";
 // ────────────────────────────────────────────────────────── I ──────────
 //   :::::: C O M P O N E N T : :  :   :    :     :        :          :
 // ────────────────────────────────────────────────────────────────────
@@ -15,8 +16,10 @@ export default function Index({ setResponse,children, open, onClose, width, titl
 
   // ─── States ─────────────────────────────────────────────────────────────────────
   const [status,setStatus]=useState(1)
-  // ─── Life Cycle ─────────────────────────────────────────────────────────────────
   const [phoneNumber, setPhoneNumber] = useState("");
+  const [currentUserInfo,setCurrentUserInfo]=useState({})
+  // ─── Life Cycle ─────────────────────────────────────────────────────────────────
+ 
   // ─── Functions ──────────────────────────────────────────────────────────────────
 
   //
@@ -33,9 +36,11 @@ export default function Index({ setResponse,children, open, onClose, width, titl
         status===1&&<RequestActiveCode setPhoneNumber={setPhoneNumber} phoneNumber={phoneNumber} setActiveModal={setStatus}/>
       }
        {
-        status===2&& <SendActiveCode  phoneNumber={phoneNumber} closeModal={closeModal} setActiveModal={setStatus}/>
+        status===2&& <SendActiveCode setCurrentUserInfo={setCurrentUserInfo} phoneNumber={phoneNumber} closeModal={closeModal} setActiveModal={setStatus}/>
       }
-     
+     {
+       status===3&&<DoctorUserForm currentUserInfo={currentUserInfo} setStatus={setStatus}/>
+     }
     </section>
   );
 }

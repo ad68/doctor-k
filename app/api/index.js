@@ -1,3 +1,5 @@
+import { sign } from "crypto";
+
 const baseUrl = process.env.NEXT_PUBLIC_API_URL;
 export const api = {
   Expertise: {
@@ -9,5 +11,7 @@ export const api = {
   },
   authentication: {
     sendOtp: baseUrl + 'auth/sendOtp',
+    login:baseUrl +'auth/login',
+    returnProfile:baseUrl+'auth/returnProfile'
   }
 };
