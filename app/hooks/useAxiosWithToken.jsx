@@ -17,7 +17,7 @@ useAxiosWithToken.interceptors.response.use(
       notify.Error(NotifyMessage.NETWORK_ERROR)
     }
     else {
-      window.location.href = "/login";
+      // window.location.href = "/login";
       return Promise.reject(error);
     }
 

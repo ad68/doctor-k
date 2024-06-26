@@ -10,7 +10,7 @@ import axios from "axios";
 // ────────────────────────────────────────────────────────────────────
 //
 
-export default function Index({
+export default function  Index({
   closeModal,
   phoneNumber,
   setActiveModal,
@@ -30,7 +30,7 @@ export default function Index({
   // ─── Functions ──────────────────────────────────────────────────────────────────
   const getUserInfo = (token) => {
     axios
-      .get(api.authentication.returnProfile + `?JwtToken=${token}`)
+      .get(api.authentication.returnProfile,{headers:{Authorization:`Bearer ${token}`}})
       .then((res) => {
         setCurrentUserInfo(res.data);
         if (!res.data.profileNecessaryInfoInserted) {

@@ -12,6 +12,9 @@ export const api = {
   authentication: {
     sendOtp: baseUrl + 'auth/sendOtp',
     login:baseUrl +'auth/login',
-    returnProfile:baseUrl+'auth/returnProfile'
+    returnProfile:baseUrl+'auth/returnProfile',
+    physician:{
+      completeProfile:baseUrl+'physician',
+    }
   }
 };

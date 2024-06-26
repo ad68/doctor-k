@@ -26,7 +26,7 @@ export default function Index({
         disabled={disabled}
         value={value}
         style={{ ...style }}
-        className={`${dark ? "border-[#2f2f2f80]  bg-[#2f2f2f80] text-white" : ""} ${type === "phone" && 'pl-16 ltr'} mx-0 h-[48px] w-full rounded-[4px] border-[1px] border-[#C2C2C2] p-[15px] text-xs outline-none transition-all duration-300 focus:border-[#0165e1] ${className}`}
+        className={`${dark ? "border-[#2f2f2f80]  bg-[#2f2f2f80] text-white" : ""} ${type === "phone" && 'pl-16 ltr'} mx-0 h-[48px] w-full rounded-[10px] border-[1px] border-[#C2C2C2] p-[15px] text-xs outline-none transition-all duration-300 focus:border-[#0165e1] ${className}`}
       />
     </section>
   );
