@@ -1,6 +1,6 @@
 "use client";
 import { Button, ErrorMessage, TextBox } from "@/common";
-import React, { useEffect,useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { useForm, Controller, SubmitHandler } from "react-hook-form";
 import { Regex } from "@/enums";
@@ -12,7 +12,7 @@ import { useAxiosWithToken } from "@/hooks";
 // ────────────────────────────────────────────────────────────────────
 //
 
-export default function Index({ currentUserInfo,  closeModal }) {
+export default function Index({ currentUserInfo, closeModal }) {
   // ─── Global Variable ────────────────────────────────────────────────────────────
   const {
     handleSubmit,
@@ -23,8 +23,9 @@ export default function Index({ currentUserInfo,  closeModal }) {
     defaultValues: {
       firstName: currentUserInfo?.firstName,
       lastName: currentUserInfo?.lastName,
-      nationalCode:currentUserInfo?.nationalCode,
-      physicianSystemCode:currentUserInfo?.physicianSystemCode,
+      nationalCode: currentUserInfo?.nationalCode,
+      physicianSystemCode: currentUserInfo?.physicianSystemCode,
+
     },
   });
   // ─── States ─────────────────────────────────────────────────────────────────────
@@ -39,12 +40,16 @@ export default function Index({ currentUserInfo,  closeModal }) {
       firstName: data.firstName,
       lastName: data.lastName,
       nationalCode: data.nationalCode,
-      physicianSystemCode:data.physicianSystemCode,
-      
+      physicianSystemCode: data.physicianSystemCode,
+      description: null,
+      dateOfBirth: null,
+      educationLevel: null,
+      gender: null,
+      mainImage: null
     };
     setLoading(true);
-   useAxiosWithToken
-      .post(api.authentication.physician.completeProfile,params)
+    useAxiosWithToken
+      .post(api.authentication.physician.completeProfile, params)
       .then((res) => {
         setLoading(false);
         closeModal()
@@ -78,7 +83,7 @@ export default function Index({ currentUserInfo,  closeModal }) {
                 message: "کد ملی را بدرستی وارد کنید",
               },
             }}
-            render={({ field: { onChange,value  } }) => (
+            render={({ field: { onChange, value } }) => (
               <TextBox
                 onChange={onChange}
                 value={value}
@@ -107,7 +112,7 @@ export default function Index({ currentUserInfo,  closeModal }) {
                 message: "  نام  نباید بیشتر از 40 کاراکتر باشد",
               },
             }}
-            render={({ field: { onChange,value } }) => (
+            render={({ field: { onChange, value } }) => (
               <TextBox
                 onChange={onChange}
                 value={value}
@@ -125,7 +130,7 @@ export default function Index({ currentUserInfo,  closeModal }) {
           <Controller
             name="lastName"
             control={control}
-           
+
             rules={{
               required: "نام خانوادگی الزامی است",
               minLength: {
@@ -137,7 +142,7 @@ export default function Index({ currentUserInfo,  closeModal }) {
                 message: "  نام خانوادگی نباید بیشتر از 40 کاراکتر باشد",
               },
             }}
-            render={({ field: { onChange,value } }) => (
+            render={({ field: { onChange, value } }) => (
               <TextBox
                 onChange={onChange}
                 value={value}
@@ -155,14 +160,14 @@ export default function Index({ currentUserInfo,  closeModal }) {
           <Controller
             name="physicianSystemCode"
             control={control}
-          
+
             rules={{
               required: " کد نظام پزشکی الزامی است",
               pattern: {
                 message: " کد نظام پزشکی را بدرستی وارد کنید",
               },
             }}
-            render={({ field: { onChange,value  } }) => (
+            render={({ field: { onChange, value } }) => (
               <TextBox
                 onChange={onChange}
                 value={value}
