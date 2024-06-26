@@ -31,9 +31,7 @@ export default function Index({ currentUserInfo, closeModal }) {
   // ─── States ─────────────────────────────────────────────────────────────────────
   const [loading, setLoading] = useState(false);
   // ─── Life Cycle ─────────────────────────────────────────────────────────────────
-  useEffect(() => {
-    console.log(currentUserInfo);
-  }, [currentUserInfo]);
+
   // ─── Functions ──────────────────────────────────────────────────────────────────
   const onSubmit = (data) => {
     let params = {
