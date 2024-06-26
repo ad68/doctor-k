@@ -65,7 +65,7 @@ export default function Index({ setActiveModal, phoneNumber, setPhoneNumber }) {
           onChange={(e) => {
             setPhoneNumber(e.target.value);
           }}
-          placeholder="9xx xxx xxxx"
+          placeholder="09xx xxx xxxx"
           className="ltr relative mt-1 h-[48px] w-full rounded-[10px] border border-solid border-[#D1D1D1] py-[10px] pl-[90px] "
         />
 

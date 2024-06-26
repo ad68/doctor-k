@@ -14,24 +14,32 @@ export default function Index({ setActiveModal, phoneNumber, setPhoneNumber }) {
   // ─── Global Variable ────────────────────────────────────────────────────────────
 
   // ─── States ─────────────────────────────────────────────────────────────────────
-  const [error, setError] = useState(false);
+  const [error, setError] = useState(true);
   const [firstSubmit, setFirstSubmit] = useState(false);
   // ─── Life Cycle ─────────────────────────────────────────────────────────────────
 
   // ─── Functions ──────────────────────────────────────────────────────────────────
   const RequestActiveCode = () => {
+    setFirstSubmit(true);
     if (Regex.MOBILE.test(phoneNumber)) {
       useAxios
         .get(api.authentication.sendOtp + `?phoneNumber=${phoneNumber}`)
         .then((res) => {
           setActiveModal(2);
         })
-        .catch((err) => {
-          setError(true);
-        });
+        .catch((err) => {});
+    } else {
+      setError(true);
     }
   };
-
+  useEffect(() => {
+    if (!Regex.MOBILE.test(phoneNumber) && firstSubmit) {
+      setError(true);
+    } else {
+      setError(false);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [phoneNumber]);
   //
   // ──────────────────────────────────────────────────── I ──────────
   //   :::::: R E N D E R : :  :   :    :     :        :          :
@@ -57,7 +65,7 @@ export default function Index({ setActiveModal, phoneNumber, setPhoneNumber }) {
           onChange={(e) => {
             setPhoneNumber(e.target.value);
           }}
-          placeholder="9xx xxx xxxx"
+          placeholder="09xx xxx xxxx"
           className="ltr relative mt-1 h-[48px] w-full rounded-[10px] border border-solid border-[#D1D1D1] py-[10px] pl-[90px] "
         />
 
