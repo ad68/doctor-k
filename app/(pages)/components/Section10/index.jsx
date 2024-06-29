@@ -6,6 +6,7 @@ import QuestionBox from "./components/QestionBoxState";
 import { useFetch } from "@/hooks";
 import { api } from "@/api";
 import { ComponentLoading } from "@/common";
+import { consoleLog_BlackOrange, consoleLog_Blue } from "@/helper";
 // ────────────────────────────────────────────────────────── I ──────────
 //   :::::: C O M P O N E N T : :  :   :    :     :        :          :
 // ────────────────────────────────────────────────────────────────────
@@ -15,7 +16,7 @@ export default function Index() {
   // ─── Global Variable ────────────────────────────────────────────────────────────
 
   // ─── States ─────────────────────────────────────────────────────────────────────
-  const [activeFilter, setActiveFilter] = useState('Support');
+  const [activeFilter, setActiveFilter] = useState('Physician');
   const [faqList, setFaqList] = useState([]);
   const [activeTab, setActiveTab] = useState(0);
   const [data, loading] = useFetch(api.Miscellaneous.getMiscellaneous);
@@ -26,9 +27,15 @@ export default function Index() {
     setFaqList(data.filter((value) => value.groupName === activeFilter));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeFilter]);
+  /*   useEffect(() => {
+      console.log(faqList);
+    }, [faqList, data]); */
   useEffect(() => {
-    console.log(faqList);
-  }, [faqList,data]);
+    consoleLog_BlackOrange(activeTab)
+  }, [activeTab])
+  useEffect(() => {
+    consoleLog_Blue(activeFilter)
+  }, [activeFilter])
   //
   // ──────────────────────────────────────────────────── I ──────────
   //   :::::: R E N D E R : :  :   :    :     :        :          :
@@ -51,7 +58,7 @@ export default function Index() {
                 سوالات متداول
               </h1>
             </section>
-            <Tab activeFilter={activeFilter} setActiveFilter={setActiveFilter}/>
+            <Tab activeFilter={activeFilter} setActiveFilter={setActiveFilter} />
           </header>
         </section>
         <section className="grid w-[820px] gap-4">

@@ -12,8 +12,6 @@ import Section9 from "./components/Section9";
 import Section10 from "./components/Section10";
 import { UserChat } from "@/common";
 
-
-
 //
 // ────────────────────────────────────────────────────────── I ──────────
 //   :::::: C O M P O N E N T : :  :   :    :     :        :          :
@@ -24,7 +22,6 @@ export default function page() {
   // ─── Global Variable ────────────────────────────────────────────────────────────
 
   // ─── States ─────────────────────────────────────────────────────────────────────
-
 
   // ─── Life Cycle ─────────────────────────────────────────────────────────────────
 
@@ -37,14 +34,10 @@ export default function page() {
   //
   return (
     <>
-    
-<UserChat />
+      <UserChat />
       <Section1 />
       <Section2 />
       <Section3 />
-      {/*    <section className="container mt-[400px] ">
-       
-      </section> */}
       <Section4 />
       <Section5 />
       <Section6 />

@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { useForm, Controller, SubmitHandler } from "react-hook-form";
 import { Regex } from "@/enums";
-import { notify } from "@/helper";
+import { consoleLog_BlackOrange, notify } from "@/helper";
 import { api } from "@/api";
 import { useAxiosWithToken } from "@/hooks";
 // ────────────────────────────────────────────────────────── I ──────────
@@ -39,11 +39,11 @@ export default function Index({ currentUserInfo, closeModal }) {
       lastName: data.lastName,
       nationalCode: data.nationalCode,
       physicianSystemCode: data.physicianSystemCode,
-      description: null,
-      dateOfBirth: null,
-      educationLevel: null,
-      gender: null,
-      mainImage: null
+      /*  description: null,
+       dateOfBirth: null,
+       educationLevel: null,
+       gender: null,
+       mainImage: null */
     };
     setLoading(true);
     useAxiosWithToken
@@ -54,7 +54,11 @@ export default function Index({ currentUserInfo, closeModal }) {
         notify.Success("پزشک با موفقیت افزوده شد");
       })
       .catch((err) => {
+        let errorCode = err?.response?.data?.errorCode
         setLoading(false);
+        if (errorCode === 2) {
+          notify.Error("این کاربر قبلا به عنوان بیمار ثبت نام کرده است")
+        }
       });
   };
   //
