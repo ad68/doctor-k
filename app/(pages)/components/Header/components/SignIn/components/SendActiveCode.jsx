@@ -52,9 +52,7 @@ export default function Index({
         });
     }
   };
-  useEffect(() => {
-    console.log(loading);
-  }, [loading]);
+
   const ReloadTimer = () => {
     setResendBtnState(false);
     setReloadTimer(!reloadTimer);
