@@ -1,10 +1,10 @@
-import "./globals.css";
+import "../styles/globals.css";
 import { Figtree } from "next/font/google";
 import localFont from "next/font/local";
-import  Header  from "./components/Header";
+import Header from "./components/Header";
 import Footer from "./components/Footer";
 import TopLoader from "../common/TopLoader";
-import { Toaster } from "react-hot-toast";
+import ToasterProvider from "@/providers/ToasterProvides";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 const figtree = Figtree({
@@ -77,16 +77,11 @@ export default function RootLayout({ children }) {
   // ──────────────────────────────────────────────────────────────
   //
   return (
-    <html
-      lang="fa"
-      dir="rtl"
-      className={`${yekanbakh.variable} ${figtree.variable}`}
-    >
-      <body className="dark:bg-black">
-        {/*  <ScrollTop /> */}
+    <html lang='fa' dir='rtl' className={`${yekanbakh.variable} ${figtree.variable}`}>
+      <body className='dark:bg-black'>
         <TopLoader />
         <Header />
-        <Toaster />
+        <ToasterProvider />
         <main>{children}</main>
         <Footer />
       </body>

@@ -3,8 +3,6 @@ import Image from "next/image";
 import { Modal } from "@/common";
 import SignIn from "./components/SignIn";
 import { useState } from "react";
-import { title } from "process";
-
 // ────────────────────────────────────────────────────────── I ──────────
 //   :::::: C O M P O N E N T : :  :   :    :     :        :          :
 // ────────────────────────────────────────────────────────────────────
@@ -14,14 +12,13 @@ export default function Index() {
   // ─── Global Variable ────────────────────────────────────────────────────────────
 
   // ─── States ─────────────────────────────────────────────────────────────────────
-const[signInModal,setSignInModal] = useState(false)
-
+  const [signInModal, setSignInModal] = useState(false)
   // ─── Life Cycle ─────────────────────────────────────────────────────────────────
 
   // ─── Functions ──────────────────────────────────────────────────────────────────
-const closeModal=()=>{
-  setSignInModal(false)
-}
+  const closeModal = () => {
+    setSignInModal(false)
+  }
 
   //
   // ──────────────────────────────────────────────────── I ──────────
@@ -95,7 +92,7 @@ const closeModal=()=>{
                 className="cursor-pointer"
                 alt=""
               />
-              <span onClick={()=>{setSignInModal(true)}} className="flex items-center gap-1 text-sm">
+              <span onClick={() => { setSignInModal(true) }} className="flex items-center gap-1 text-sm">
                 <span className="cursor-pointer">ثبت نام</span>/
                 <span className="cursor-pointer">ورود </span>
               </span>

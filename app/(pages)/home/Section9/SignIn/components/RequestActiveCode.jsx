@@ -19,7 +19,6 @@ export default function Index({ setActiveModal, phoneNumber, setPhoneNumber }) {
   const [firstSubmit, setFirstSubmit] = useState(false);
   const [loading, setLoading] = useState(false);
   // ─── Life Cycle ─────────────────────────────────────────────────────────────────
-
   // ─── Functions ──────────────────────────────────────────────────────────────────
   const RequestActiveCode = () => {
     setLoading(true);
@@ -64,7 +63,7 @@ export default function Index({ setActiveModal, phoneNumber, setPhoneNumber }) {
 
       <section className=" relative w-full">
         <label className=" mt-6 block text-sm text-[#707070]">
-          شماره موبایل{" "}
+          شماره موبایل
         </label>
         <TextBox
           value={phoneNumber}
@@ -74,7 +73,6 @@ export default function Index({ setActiveModal, phoneNumber, setPhoneNumber }) {
           placeholder="09xx xxx xxxx"
           className="ltr relative mt-1 h-[48px] w-full rounded-[10px] border border-solid border-[#D1D1D1] py-[10px] pl-[90px] "
         />
-
         <Image
           alt=""
           src="/images/icons/flag-iran.svg"
