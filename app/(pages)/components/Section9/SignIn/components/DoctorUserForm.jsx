@@ -56,7 +56,7 @@ export default function Index({ currentUserInfo, closeModal }) {
       .catch((err) => {
         let errorCode = err?.response?.data?.errorCode
         setLoading(false);
-        if (errorCode === 2) {
+        if (errorCode === 41) {
           notify.Error("این کاربر قبلا به عنوان بیمار ثبت نام کرده است")
         }
       });

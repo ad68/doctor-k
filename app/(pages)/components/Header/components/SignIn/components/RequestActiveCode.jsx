@@ -5,6 +5,7 @@ import { ErrorMessage, TextBox } from "@/common";
 import { useAxios } from "@/hooks";
 import { api } from "@/api";
 import { Regex } from "@/enums";
+import { notify } from "@/helper";
 // ────────────────────────────────────────────────────────── I ──────────
 //   :::::: C O M P O N E N T : :  :   :    :     :        :          :
 // ────────────────────────────────────────────────────────────────────
@@ -27,7 +28,9 @@ export default function Index({ setActiveModal, phoneNumber, setPhoneNumber }) {
         .then((res) => {
           setActiveModal(2);
         })
-        .catch((err) => {});
+        .catch((err) => {
+          notify.Error("خطای ناشناخته")
+        });
     } else {
       setError(true);
     }

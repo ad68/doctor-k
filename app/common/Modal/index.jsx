@@ -50,7 +50,7 @@ export default function Index({ children, open, onClose, width }) {
     <section ref={modalWrapper} className="fixed  h-full w-full top-0 left-0 flex items-center justify-center z-[500]">
       <section onClick={onClose} className="modalOverLay">
       </section>
-     <section className="modalWrapper ">
+      <section className="modalWrapper ">
         <section
           ref={modalBox}
           className="modalBox  mx-auto z-[1000] bg-white"
@@ -60,15 +60,15 @@ export default function Index({ children, open, onClose, width }) {
             onClick={onClose}
             className="absolute left-[9px] xl:left-4 top-[6px] xl:top-3 z-10 h-[1px] w-[11px] xl:w-[18px] cursor-pointer rounded-full  transition-all hover:bg-slate-200"
           >
-            <Close  fill="#434343" color="#434343" width='15' height='15' viewBox="0 0 24 24" className='xl:hidden'/>
-            <Close  fill="#434343" color="#434343" width='20' height='20' viewBox="0 0 24 24" className='xl:block hidden'/>
+            <Close fill="#434343" color="#434343" width='15' height='15' viewBox="0 0 24 24" className='xl:hidden' />
+            <Close fill="#434343" color="#434343" width='20' height='20' viewBox="0 0 24 24" className='xl:block hidden' />
           </section>
           {open ? <section>{children}</section> : ""}
         </section>
       </section>
-      </section>
-  
-    
+    </section>
+
+
   );
 }
 
