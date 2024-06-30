@@ -41,9 +41,7 @@ export default function Index({ closeModal, phoneNumber, setActiveModal }) {
         setLoading(false);
       });
   };
-  useEffect(() => {
-    console.log(loading);
-  }, [loading]);
+
   //
   // ──────────────────────────────────────────────────── I ──────────
   //   :::::: R E N D E R : :  :   :    :     :        :          :
