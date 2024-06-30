@@ -4,6 +4,8 @@ import Image from "next/image";
 import OtpInputs from "./OtpInputs";
 import { useAxios } from "@/hooks";
 import { api } from "@/api";
+import { Button } from "@/common";
+
 // ────────────────────────────────────────────────────────── I ──────────
 //   :::::: C O M P O N E N T : :  :   :    :     :        :          :
 // ────────────────────────────────────────────────────────────────────
@@ -14,6 +16,7 @@ export default function Index({ closeModal, phoneNumber, setActiveModal }) {
 
   // ─── States ─────────────────────────────────────────────────────────────────────
   const [activeCode, setActiveCode] = useState();
+  const [loading, setLoading] = useState(false);
   const [response, setResponse] = useState();
   // ─── Life Cycle ─────────────────────────────────────────────────────────────────
   useEffect(() => {
@@ -21,6 +24,7 @@ export default function Index({ closeModal, phoneNumber, setActiveModal }) {
   }, [activeCode]);
   // ─── Functions ──────────────────────────────────────────────────────────────────
   const SendActiveCode = () => {
+    setLoading(true);
     let params = {
       mobileNumber: phoneNumber,
       otp: activeCode,
@@ -29,11 +33,17 @@ export default function Index({ closeModal, phoneNumber, setActiveModal }) {
     useAxios
       .post(api.authentication.login, params)
       .then((res) => {
+        setLoading(false);
         setResponse(res.data);
         closeModal();
       })
-      .catch((err) => {});
+      .catch((err) => {
+        setLoading(false);
+      });
   };
+  useEffect(() => {
+    console.log(loading);
+  }, [loading]);
   //
   // ──────────────────────────────────────────────────── I ──────────
   //   :::::: R E N D E R : :  :   :    :     :        :          :
@@ -61,21 +71,28 @@ export default function Index({ closeModal, phoneNumber, setActiveModal }) {
       <span className="mt-4 block text-center text-sm font-medium leading-[24.18px] text-[#707070]">
         0:58
       </span>
-      <button
+      <Button
+        loading={loading}
         onClick={() => {
           SendActiveCode();
         }}
-        className="mt-[48px]  flex h-[48px] w-full  items-center justify-center gap-[10.16px] rounded-[10px] bg-[#2C8EE8] font-medium text-white"
+        className="mt-[48px]  flex h-[48px] w-full  items-center justify-center gap-[10.16px] rounded-[10px] bg-none  font-medium text-white"
       >
-        دریافت کد تایید
-        <Image
-          alt=""
-          src="/images/icons/VectorBtnLeft.svg"
-          width={14.25}
-          height={20.34}
-          className=""
-        />
-      </button>
+        {loading ? (
+          ""
+        ) : (
+          <>
+            دریافت کد تایید
+            <Image
+              alt=""
+              src="/images/icons/VectorBtnLeft.svg"
+              width={14.25}
+              height={20.34}
+              className=""
+            />
+          </>
+        )}
+      </Button>
     </>
   );
 }

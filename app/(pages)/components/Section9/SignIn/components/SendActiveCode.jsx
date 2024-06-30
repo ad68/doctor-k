@@ -5,6 +5,7 @@ import OtpInputs from "./OtpInputs";
 import { useAxios } from "@/hooks";
 import { api } from "@/api";
 import axios from "axios";
+import { Button } from "@/common";
 // ────────────────────────────────────────────────────────── I ──────────
 //   :::::: C O M P O N E N T : :  :   :    :     :        :          :
 // ────────────────────────────────────────────────────────────────────
@@ -21,7 +22,7 @@ export default function Index({
 
   // ─── States ─────────────────────────────────────────────────────────────────────
   const [activeCode, setActiveCode] = useState();
-
+  const [loading, setLoading] = useState(false);
   // ─── Life Cycle ─────────────────────────────────────────────────────────────────
 
   useEffect(() => {
@@ -29,9 +30,13 @@ export default function Index({
   }, [activeCode]);
   // ─── Functions ──────────────────────────────────────────────────────────────────
   const getUserInfo = (token) => {
+    setLoading(true);
     axios
-      .get(api.authentication.returnProfile, { headers: { Authorization: `Bearer ${token}` } })
+      .get(api.authentication.returnProfile, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
       .then((res) => {
+        setLoading(false);
         setCurrentUserInfo(res.data);
         if (!res.data.profileNecessaryInfoInserted) {
           setActiveModal(3);
@@ -39,7 +44,9 @@ export default function Index({
           closeModal();
         }
       })
-      .catch((err) => { });
+      .catch((err) => {
+        setLoading(false);
+      });
   };
   const SendActiveCode = () => {
     let params = {
@@ -54,7 +61,7 @@ export default function Index({
         console.log(res.data.token);
         getUserInfo(res.data.token);
       })
-      .catch((err) => { });
+      .catch((err) => {});
   };
 
   //
@@ -84,21 +91,28 @@ export default function Index({
       <span className="mt-4 block text-center text-sm font-medium leading-[24.18px] text-[#707070]">
         0:58
       </span>
-      <button
+      <Button
+        loading={loading}
         onClick={() => {
           SendActiveCode();
         }}
-        className="mt-[48px]  flex h-[48px] w-full  items-center justify-center gap-[10.16px] rounded-[10px] bg-[#2C8EE8] font-medium text-white"
+        className="mt-[48px]  flex h-[48px] w-full  items-center justify-center gap-[10.16px] rounded-[10px] bg-none  font-medium text-white"
       >
-        دریافت کد تایید
-        <Image
-          alt=""
-          src="/images/icons/VectorBtnLeft.svg"
-          width={14.25}
-          height={20.34}
-          className=""
-        />
-      </button>
+        {loading ? (
+          ""
+        ) : (
+          <>
+            دریافت کد تایید
+            <Image
+              alt=""
+              src="/images/icons/VectorBtnLeft.svg"
+              width={14.25}
+              height={20.34}
+              className=""
+            />
+          </>
+        )}
+      </Button>
     </>
   );
 }

@@ -5,6 +5,7 @@ import { ErrorMessage, TextBox } from "@/common";
 import { useAxios } from "@/hooks";
 import { api } from "@/api";
 import { Regex } from "@/enums";
+import { Button } from "@/common";
 // ────────────────────────────────────────────────────────── I ──────────
 //   :::::: C O M P O N E N T : :  :   :    :     :        :          :
 // ────────────────────────────────────────────────────────────────────
@@ -16,18 +17,23 @@ export default function Index({ setActiveModal, phoneNumber, setPhoneNumber }) {
   // ─── States ─────────────────────────────────────────────────────────────────────
   const [error, setError] = useState(true);
   const [firstSubmit, setFirstSubmit] = useState(false);
+  const [loading, setLoading] = useState(false);
   // ─── Life Cycle ─────────────────────────────────────────────────────────────────
 
   // ─── Functions ──────────────────────────────────────────────────────────────────
   const RequestActiveCode = () => {
+    setLoading(true);
     setFirstSubmit(true);
     if (Regex.MOBILE.test(phoneNumber)) {
       useAxios
         .get(api.authentication.sendOtp + `?phoneNumber=${phoneNumber}`)
         .then((res) => {
+          setLoading(false);
           setActiveModal(2);
         })
-        .catch((err) => {});
+        .catch((err) => {
+          setLoading(false);
+        });
     } else {
       setError(true);
     }
@@ -84,21 +90,29 @@ export default function Index({ setActiveModal, phoneNumber, setPhoneNumber }) {
       {error && firstSubmit && (
         <ErrorMessage>لطفا شماره تماس را بدرستی وارد کنید</ErrorMessage>
       )}
-      <button
+      <Button
+        loading={loading}
         onClick={() => {
           RequestActiveCode();
         }}
-        className="mt-[48px] flex h-[48px] w-full items-center justify-center gap-[10.16px] rounded-[10px] bg-[#2C8EE8] font-medium text-white"
+        className="mt-[48px]  flex h-[48px] w-full  items-center justify-center gap-[10.16px] rounded-[10px] bg-none  font-medium text-white"
       >
-        دریافت کد تایید
-        <Image
-          alt=""
-          src="/images/icons/VectorBtnLeft.svg"
-          width={14.25}
-          height={20.34}
-          className=""
-        />
-      </button>
+        {loading ? (
+          ""
+        ) : (
+          <>
+            دریافت کد تایید
+            <Image
+              alt=""
+              src="/images/icons/VectorBtnLeft.svg"
+              width={14.25}
+              height={20.34}
+              className=""
+            />
+          </>
+        )}
+      </Button>
+
       <p className="mt-4 text-center text-xs">
         ورود شما به معنای پذیرش{" "}
         <span className="cursor-pointer text-[#2C8EE8]"> قوانین و مقررات</span>{" "}
