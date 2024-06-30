@@ -90,10 +90,10 @@ export default function Index({ setActiveModal, phoneNumber, setPhoneNumber }) {
       {error && firstSubmit && (
         <ErrorMessage>لطفا شماره تماس را بدرستی وارد کنید</ErrorMessage>
       )}
-        <Button
+      <Button
         loading={loading}
         onClick={() => {
-          SendActiveCode();
+          RequestActiveCode();
         }}
         className="mt-[48px]  flex h-[48px] w-full  items-center justify-center gap-[10.16px] rounded-[10px] bg-none  font-medium text-white"
       >
