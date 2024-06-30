@@ -8,6 +8,7 @@ import axios from "axios";
 import { Button } from "@/common";
 
 import CountDown from "./CountDown";
+import { useAuthStore } from "@/store/auth";
 // ────────────────────────────────────────────────────────── I ──────────
 //   :::::: C O M P O N E N T : :  :   :    :     :        :          :
 // ────────────────────────────────────────────────────────────────────
@@ -21,12 +22,13 @@ export default function Index({
   setStatus,
 }) {
   // ─── Global Variable ────────────────────────────────────────────────────────────
-
+  const updateAuthInfo = useAuthStore((state) => state.updateAuthInfo);
   // ─── States ─────────────────────────────────────────────────────────────────────
   const [activeCode, setActiveCode] = useState();
   const [loading, setLoading] = useState(false);
   const [resendBtnState, setResendBtnState] = useState(false);
   const [reloadTimer, setReloadTimer] = useState(false);
+
   // ─── Life Cycle ─────────────────────────────────────────────────────────────────
 
   useEffect(() => {
@@ -47,10 +49,13 @@ export default function Index({
       })
       .then((res) => {
         setLoading(false);
-        console.log(res.data.profileNecessaryInfoInserted);
         if (!res.data.profileNecessaryInfoInserted) {
           setActiveModal(3);
         } else {
+          updateAuthInfo({
+            firstName: res.data.firstName,
+            lastName: res.data.lastName,
+          });
           closeModal();
         }
         setCurrentUserInfo(res.data);
@@ -69,10 +74,9 @@ export default function Index({
       .post(api.authentication.login, params)
       .then((res) => {
         localStorage.token = "Bearer " + res.data.token;
-        console.log(res.data.token);
         getUserInfo(res.data.token);
       })
-      .catch((err) => { });
+      .catch((err) => {});
   };
 
   //

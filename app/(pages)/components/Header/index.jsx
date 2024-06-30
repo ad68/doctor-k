@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Modal } from "@/common";
 import SignIn from "./components/SignIn";
 import { useState } from "react";
+import ProfileBtn from "./components/ProfileBtn";
 // ────────────────────────────────────────────────────────── I ──────────
 //   :::::: C O M P O N E N T : :  :   :    :     :        :          :
 // ────────────────────────────────────────────────────────────────────
@@ -12,13 +13,13 @@ export default function Index() {
   // ─── Global Variable ────────────────────────────────────────────────────────────
 
   // ─── States ─────────────────────────────────────────────────────────────────────
-  const [signInModal, setSignInModal] = useState(false)
+  const [signInModal, setSignInModal] = useState(false);
   // ─── Life Cycle ─────────────────────────────────────────────────────────────────
 
   // ─── Functions ──────────────────────────────────────────────────────────────────
   const closeModal = () => {
-    setSignInModal(false)
-  }
+    setSignInModal(false);
+  };
 
   //
   // ──────────────────────────────────────────────────── I ──────────
@@ -27,7 +28,7 @@ export default function Index() {
   //
   return (
     <>
-      <Modal open={signInModal} onClose={closeModal} width={442} >
+      <Modal open={signInModal} onClose={closeModal} width={442}>
         <SignIn closeModal={closeModal} />
       </Modal>
       <header className="fixed top-0 z-[1000] flex h-[72px] w-full items-center  bg-[#366FA7] px-[98px] text-white">
@@ -84,19 +85,7 @@ export default function Index() {
                 <button className="h-8 w-[79px]">تماس با ما </button>
               </a>
             </section>
-            <section className="flex items-center gap-7">
-              <Image
-                src="/images/icons/search-24.svg"
-                width={24}
-                height={24}
-                className="cursor-pointer"
-                alt=""
-              />
-              <span onClick={() => { setSignInModal(true) }} className="flex items-center gap-1 text-sm">
-                <span className="cursor-pointer">ثبت نام</span>/
-                <span className="cursor-pointer">ورود </span>
-              </span>
-            </section>
+            <ProfileBtn setSignInModal={setSignInModal} />
           </header>
         </nav>
       </header>

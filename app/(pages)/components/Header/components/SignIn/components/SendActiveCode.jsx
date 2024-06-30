@@ -5,8 +5,8 @@ import OtpInputs from "./OtpInputs";
 import { useAxios } from "@/hooks";
 import { api } from "@/api";
 import { Button } from "@/common";
-import { useRouter } from "next/navigation";
 import CountDown from "./CountDown";
+import { useAuthStore } from "@/store/auth";
 // ────────────────────────────────────────────────────────── I ──────────
 //   :::::: C O M P O N E N T : :  :   :    :     :        :          :
 // ────────────────────────────────────────────────────────────────────
@@ -19,11 +19,10 @@ export default function Index({
   RequestActiveCode,
 }) {
   // ─── Global Variable ────────────────────────────────────────────────────────────
-  const router = useRouter();
+  const updateAuthInfo = useAuthStore((state) => state.updateAuthInfo);
   // ─── States ─────────────────────────────────────────────────────────────────────
   const [activeCode, setActiveCode] = useState();
   const [loading, setLoading] = useState(false);
-  const [response, setResponse] = useState();
   const [resendBtnState, setResendBtnState] = useState(false);
   const [reloadTimer, setReloadTimer] = useState(false);
   // ─── Life Cycle ─────────────────────────────────────────────────────────────────
@@ -43,8 +42,9 @@ export default function Index({
       useAxios
         .post(api.authentication.login, params)
         .then((res) => {
+          localStorage.token = res.data.token;
           setLoading(false);
-          setResponse(res.data);
+          updateAuthInfo({ phoneNumber: phoneNumber });
           closeModal();
         })
         .catch((err) => {

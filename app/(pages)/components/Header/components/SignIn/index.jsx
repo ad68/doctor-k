@@ -14,20 +14,12 @@ import { notify } from "@/helper";
 // ────────────────────────────────────────────────────────────────────
 //
 
-export default function Index({
-  setResponse,
-  children,
-  open,
-  onClose,
-  width,
-  title,
-  closeModal,
-}) {
+export default function Index({ closeModal }) {
   // ─── Global Variable ────────────────────────────────────────────────────────────
 
   // ─── States ─────────────────────────────────────────────────────────────────────
   const [status, setStatus] = useState(1);
-  const [activeCode, setActiveCode] = useState();
+
   const [loading, setLoading] = useState(false);
   const [phoneNumber, setPhoneNumber] = useState("");
   const [error, setError] = useState(true);
