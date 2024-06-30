@@ -2,53 +2,29 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { ErrorMessage, TextBox } from "@/common";
-import { useAxios } from "@/hooks";
-import { api } from "@/api";
-import { Regex } from "@/enums";
-import { notify } from "@/helper";
+
 import { Button } from "@/common";
 // ────────────────────────────────────────────────────────── I ──────────
 //   :::::: C O M P O N E N T : :  :   :    :     :        :          :
 // ────────────────────────────────────────────────────────────────────
 //
 
-export default function Index({ setActiveModal, phoneNumber, setPhoneNumber }) {
+export default function Index({
+  phoneNumber,
+  setPhoneNumber,
+  error,
+  firstSubmit,
+  RequestActiveCode,
+  loading,
+}) {
   // ─── Global Variable ────────────────────────────────────────────────────────────
 
   // ─── States ─────────────────────────────────────────────────────────────────────
-  const [error, setError] = useState(true);
-  const [firstSubmit, setFirstSubmit] = useState(false);
-  const [loading, setLoading] = useState(false);
+
   // ─── Life Cycle ─────────────────────────────────────────────────────────────────
 
   // ─── Functions ──────────────────────────────────────────────────────────────────
-  const RequestActiveCode = () => {
-    setLoading(true);
-    setFirstSubmit(true);
-    if (Regex.MOBILE.test(phoneNumber)) {
-      useAxios
-        .get(api.authentication.sendOtp + `?phoneNumber=${phoneNumber}`)
-        .then((res) => {
-          setActiveModal(2);
-          setLoading(false);
-        })
-        .catch((err) => {
-          notify.Error("خطای ناشناخته")
-          setLoading(false);
-        });
-    } else {
-      setError(true);
-    }
-  };
-  useEffect(() => {
-    if (!Regex.MOBILE.test(phoneNumber) && firstSubmit) {
-      setError(true);
-    } else {
-      setError(false);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [phoneNumber]);
-  //
+
   // ──────────────────────────────────────────────────── I ──────────
   //   :::::: R E N D E R : :  :   :    :     :        :          :
   // ──────────────────────────────────────────────────────────────

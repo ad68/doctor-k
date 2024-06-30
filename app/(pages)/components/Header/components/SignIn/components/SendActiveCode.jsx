@@ -5,45 +5,61 @@ import OtpInputs from "./OtpInputs";
 import { useAxios } from "@/hooks";
 import { api } from "@/api";
 import { Button } from "@/common";
-
+import { useRouter } from "next/navigation";
+import CountDown from "./CountDown";
 // ────────────────────────────────────────────────────────── I ──────────
 //   :::::: C O M P O N E N T : :  :   :    :     :        :          :
 // ────────────────────────────────────────────────────────────────────
 //
 
-export default function Index({ closeModal, phoneNumber, setActiveModal }) {
+export default function Index({
+  closeModal,
+  phoneNumber,
+  setActiveModal,
+  RequestActiveCode,
+}) {
   // ─── Global Variable ────────────────────────────────────────────────────────────
-
+  const router = useRouter();
   // ─── States ─────────────────────────────────────────────────────────────────────
   const [activeCode, setActiveCode] = useState();
   const [loading, setLoading] = useState(false);
   const [response, setResponse] = useState();
+  const [resendBtnState, setResendBtnState] = useState(false);
+  const [reloadTimer, setReloadTimer] = useState(false);
   // ─── Life Cycle ─────────────────────────────────────────────────────────────────
   useEffect(() => {
     console.log(activeCode);
   }, [activeCode]);
   // ─── Functions ──────────────────────────────────────────────────────────────────
+
   const SendActiveCode = () => {
-    setLoading(true);
     let params = {
       mobileNumber: phoneNumber,
       otp: activeCode,
       role: "Patient",
     };
-    useAxios
-      .post(api.authentication.login, params)
-      .then((res) => {
-        setLoading(false);
-        setResponse(res.data);
-        closeModal();
-      })
-      .catch((err) => {
-        setLoading(false);
-      });
+    if (phoneNumber && activeCode) {
+      setLoading(true);
+      useAxios
+        .post(api.authentication.login, params)
+        .then((res) => {
+          setLoading(false);
+          setResponse(res.data);
+          closeModal();
+        })
+        .catch((err) => {
+          setLoading(false);
+        });
+    }
   };
   useEffect(() => {
     console.log(loading);
   }, [loading]);
+  const ReloadTimer = () => {
+    setResendBtnState(false);
+    setReloadTimer(!reloadTimer);
+    RequestActiveCode();
+  };
   //
   // ──────────────────────────────────────────────────── I ──────────
   //   :::::: R E N D E R : :  :   :    :     :        :          :
@@ -68,9 +84,24 @@ export default function Index({ closeModal, phoneNumber, setActiveModal }) {
         کد تایید
       </label>
       <OtpInputs setActiveCode={setActiveCode} />
-      <span className="mt-4 block text-center text-sm font-medium leading-[24.18px] text-[#707070]">
-        0:58
-      </span>
+      <section className="relative flex items-center justify-center">
+        <button
+          onClick={ReloadTimer}
+          className="duration-400 mt-5 text-blue transition-all disabled:text-silver"
+          disabled={!resendBtnState}
+        >
+          ارسال مجدد
+        </button>
+        {loading && <section className="resendCode_Loader"></section>}
+      </section>
+      <section className="mt-4">
+        <CountDown
+          totalCount={10}
+          setResendBtnState={setResendBtnState}
+          reload={reloadTimer}
+          resendBtnState={resendBtnState}
+        />
+      </section>
       <Button
         loading={loading}
         onClick={() => {

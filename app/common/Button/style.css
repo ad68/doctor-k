@@ -93,3 +93,12 @@
     transform: scaleY(-1) rotate(-135deg);
   }
 }
+.resendCode_Loader {
+  width: 6px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  animation: l5 1s infinite linear alternate;
+  top: 28px;
+  position: absolute;
+  left: -23px;
+}

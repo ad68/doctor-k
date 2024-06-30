@@ -6,8 +6,8 @@ import { useAxios } from "@/hooks";
 import { api } from "@/api";
 import axios from "axios";
 import { Button } from "@/common";
-import { useRouter } from "next/router";
-import CountDown from "./components/CountDown";
+
+import CountDown from "./CountDown";
 // ────────────────────────────────────────────────────────── I ──────────
 //   :::::: C O M P O N E N T : :  :   :    :     :        :          :
 // ────────────────────────────────────────────────────────────────────
@@ -21,7 +21,6 @@ export default function Index({
   setStatus,
 }) {
   // ─── Global Variable ────────────────────────────────────────────────────────────
-  const router = useRouter();
 
   // ─── States ─────────────────────────────────────────────────────────────────────
   const [activeCode, setActiveCode] = useState();
@@ -48,12 +47,13 @@ export default function Index({
       })
       .then((res) => {
         setLoading(false);
-        setCurrentUserInfo(res.data);
+        console.log(res.data.profileNecessaryInfoInserted);
         if (!res.data.profileNecessaryInfoInserted) {
           setActiveModal(3);
         } else {
           closeModal();
         }
+        setCurrentUserInfo(res.data);
       })
       .catch((err) => {
         setLoading(false);
