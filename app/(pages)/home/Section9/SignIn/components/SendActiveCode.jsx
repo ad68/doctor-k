@@ -72,7 +72,7 @@ export default function Index({
         console.log(res.data.token);
         getUserInfo(res.data.token);
       })
-      .catch((err) => {});
+      .catch((err) => { });
   };
 
   //
@@ -112,7 +112,7 @@ export default function Index({
 
       <section className="mt-4">
         <CountDown
-          totalCount={180}
+          totalCount={10}
           setResendBtnState={setResendBtnState}
           reload={reloadTimer}
           resendBtnState={resendBtnState}

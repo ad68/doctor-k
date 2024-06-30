@@ -42,7 +42,7 @@ export default function Index({
 
       <section className=" relative w-full">
         <label className=" mt-6 block text-sm text-[#707070]">
-          شماره موبایل{" "}
+          شماره موبایل
         </label>
         <TextBox
           value={phoneNumber}
@@ -91,7 +91,7 @@ export default function Index({
         )}
       </Button>
       <p className="mt-4 text-center text-xs">
-        ورود شما به معنای پذیرش{" "}
+        ورود شما به معنای پذیرش
         <span className="cursor-pointer text-[#2C8EE8]"> قوانین و مقررات</span>
         دکترکا می‌باشد .
       </p>

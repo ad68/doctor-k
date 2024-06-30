@@ -12,12 +12,11 @@ import { useAxiosWithToken } from "@/hooks";
 // ────────────────────────────────────────────────────────────────────
 //
 
-export default function Index({ currentUserInfo, closeModal }) {
+export default function Index({ currentUserInfo }) {
   // ─── Global Variable ────────────────────────────────────────────────────────────
   const {
     handleSubmit,
     control,
-    reset,
     formState: { errors },
   } = useForm({
     defaultValues: {
@@ -49,9 +48,8 @@ export default function Index({ currentUserInfo, closeModal }) {
     useAxiosWithToken
       .post(api.authentication.physician.completeProfile, params)
       .then((res) => {
-        setLoading(false);
-        closeModal()
         notify.Success("پزشک با موفقیت افزوده شد");
+        setLoading(false);
       })
       .catch((err) => {
         let errorCode = err?.response?.data?.errorCode
