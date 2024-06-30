@@ -21,8 +21,6 @@ function Footer() {
             </span>
           </section>
           <span className=" flex w-[125px] items-center gap-2 ">
-          
-
             <span className="text-[40px] font-bold text-[#505050]" dir="ltr">
               41559
             </span>
