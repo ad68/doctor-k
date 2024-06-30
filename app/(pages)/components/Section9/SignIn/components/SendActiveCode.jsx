@@ -6,6 +6,8 @@ import { useAxios } from "@/hooks";
 import { api } from "@/api";
 import axios from "axios";
 import { Button } from "@/common";
+import { useRouter } from "next/router";
+import CountDown from "./components/CountDown";
 // ────────────────────────────────────────────────────────── I ──────────
 //   :::::: C O M P O N E N T : :  :   :    :     :        :          :
 // ────────────────────────────────────────────────────────────────────
@@ -19,16 +21,25 @@ export default function Index({
   setStatus,
 }) {
   // ─── Global Variable ────────────────────────────────────────────────────────────
+  const router = useRouter();
 
   // ─── States ─────────────────────────────────────────────────────────────────────
   const [activeCode, setActiveCode] = useState();
   const [loading, setLoading] = useState(false);
+  const [resendBtnState, setResendBtnState] = useState(false);
+  const [reloadTimer, setReloadTimer] = useState(false);
   // ─── Life Cycle ─────────────────────────────────────────────────────────────────
 
   useEffect(() => {
     console.log(activeCode);
   }, [activeCode]);
   // ─── Functions ──────────────────────────────────────────────────────────────────
+  const ReloadTimer = () => {
+    setResendBtnState(false);
+    setReloadTimer(!reloadTimer);
+    getUserInfo();
+  };
+
   const getUserInfo = (token) => {
     setLoading(true);
     axios
@@ -88,9 +99,25 @@ export default function Index({
         کد تایید
       </label>
       <OtpInputs setActiveCode={setActiveCode} />
-      <span className="mt-4 block text-center text-sm font-medium leading-[24.18px] text-[#707070]">
-        0:58
-      </span>
+      <section className="relative flex items-center justify-center">
+        <button
+          onClick={ReloadTimer}
+          className="duration-400 mt-5 text-blue transition-all disabled:text-silver"
+          disabled={!resendBtnState}
+        >
+          ارسال مجدد
+        </button>
+        {loading && <section className="resendCode_Loader"></section>}
+      </section>
+
+      <section className="mt-4">
+        <CountDown
+          totalCount={180}
+          setResendBtnState={setResendBtnState}
+          reload={reloadTimer}
+          resendBtnState={resendBtnState}
+        />
+      </section>
       <Button
         loading={loading}
         onClick={() => {
