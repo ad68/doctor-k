@@ -85,15 +85,11 @@ export default function Index({ setSignInModal }) {
             </section>
           </>
         )}
-        {logOutModal ? (
-          <LogoutModal
+         <LogoutModal
             open={logOutModal}
             onClose={() => setLogOutModal(false)}
             title="خروج"
           />
-        ) : (
-          ""
-        )}
       </section>
     </>
   );
