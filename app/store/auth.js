@@ -5,7 +5,9 @@ export const useAuthStore = create(
     devtools((set) => ({
       authInfo: {},
       updateAuthInfo: (value) => set({ authInfo: value }),
+      clearAuthInfo: () => set({ authInfo: {} }),
     })),
+
     {
       name: "auth-storage",
     },

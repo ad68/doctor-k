@@ -92,7 +92,10 @@ export default function Index({
       </Button>
       <p className="mt-4 text-center text-xs">
         ورود شما به معنای پذیرش{" "}
-        <span className="cursor-pointer text-[#2C8EE8]"> قوانین و مقررات</span>
+        <span className="ml-1 inline-block cursor-pointer text-[#2C8EE8]">
+          {" "}
+          قوانین و مقررات
+        </span>
         دکترکا می‌باشد .
       </p>
     </>

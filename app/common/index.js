@@ -16,6 +16,7 @@ import ComponentLoading from "./ComponentLoading";
 import ErrorMessage from "./Message/ErrorMessage";
 import UserChat from "./UserChat";
 import FilterColaps from "./FilterColaps";
+import LogoutModal from "./LogoutModal";
 export {
   Select,
   AsyncSelect,
@@ -35,4 +36,5 @@ export {
   ErrorMessage,
   UserChat,
   FilterColaps,
+  LogoutModal,
 };
