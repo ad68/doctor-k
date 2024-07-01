@@ -27,7 +27,10 @@ export default function Index({ setSignInModal }) {
   let proFileMenuBtn = document.querySelector(".profileMenuBtn");
   let profileMenu = document.querySelector(".profileMenu");
   document.onclick = function (e) {
-    if (!proFileMenuBtn.contains(e.target) && !profileMenu.contains(e.target)) {
+    if (
+      !proFileMenuBtn?.contains(e.target) &&
+      !profileMenu?.contains(e.target)
+    ) {
       setShowSideBar(false);
     }
   };
